@@ -15,17 +15,18 @@ public class Leetcode238_leetcode75 {
     }
 
     public int[] productExceptSelf(int[] nums) {
-        // Пока решил только брутфорсом O(n^2). Попробовать решить O(n) в решениях там на самом деле O(2*n)
-        // Получил Time Limit Exceeded :)
-        int[] result = new int[nums.length];
-        result[0] = 1;
-        for (int i = 0; i < nums.length; i++) {
-            result[i] = 1;
-            for (int j = 0; j < nums.length; j++) {
-                if (i != j) {
-                    result[i] = result[i] * nums[j];
-                }
-            }
+        // Скопировал решение у другого пользователя из солюшенов, разобрать как это работает
+        int numsLength = nums.length;
+        int prefixProduct = 1;
+        int suffixProduct = 1;
+        int[] result = new int[numsLength];
+        for(int i = 0; i < numsLength; i++) {
+            result[i] = prefixProduct;
+            prefixProduct *= nums[i];
+        }
+        for(int i = numsLength-1; i >= 0; i--) {
+            result[i] *= suffixProduct;
+            suffixProduct *= nums[i];
         }
         return result;
     }
