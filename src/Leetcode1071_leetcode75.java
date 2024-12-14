@@ -17,7 +17,7 @@ public class Leetcode1071_leetcode75 {
         } else {
             result = str1;
         }
-        for (int i = result.length() - 1; i >= 0 ; i--) {
+        for (int i = result.length() - 1; i >= 0; i--) {
             String[] str1Split = str1.split(result);
             String[] str2Split = str2.split(result);
             if (str1Split.length == 0 && str2Split.length == 0) {
