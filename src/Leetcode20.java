@@ -16,7 +16,7 @@ public class Leetcode20 {
         System.out.println(leetcode.isValid(s));
         s = "{}[]{}"; // true
         System.out.println(leetcode.isValid(s));
-        s = "{}[}{]"; // true
+        s = "{}[}{]"; // false
         System.out.println(leetcode.isValid(s));
     }
 
@@ -31,14 +31,8 @@ public class Leetcode20 {
                         return false;
                     }
                     if (s.charAt(i + 1) == ')') {
-                        if (i == 0) {
-                            if (i + 1 == s.length() - 1) {
-                                return true;
-                            } else {
-                                s = s.substring(i + 1, s.length() - 1);
-                            }
-                        }
-                        s = s.substring(0, i - 1) + s.substring(i + 1);
+                        s = getSubstring(i, s);
+                        i = -1;
                     }
                     break;
                 case '[':
@@ -46,14 +40,8 @@ public class Leetcode20 {
                         return false;
                     }
                     if (s.charAt(i + 1) == ']') {
-                        if (i == 0) {
-                            if (i + 1 == s.length() - 1) {
-                                return true;
-                            } else {
-                                s = s.substring(i + 1, s.length() - 1);
-                            }
-                        }
-                        s = s.substring(0, i - 1) + s.substring(i + 1);
+                        s = getSubstring(i, s);
+                        i = -1;
                     }
                     break;
                 case '{':
@@ -61,18 +49,27 @@ public class Leetcode20 {
                         return false;
                     }
                     if (s.charAt(i + 1) == '}') {
-                        if (i == 0) {
-                            if (i + 1 == s.length() - 1) {
-                                return true;
-                            } else {
-                                s = s.substring(i + 1, s.length() - 1);
-                            }
-                        }
-                        s = s.substring(0, i - 1) + s.substring(i + 1);
+                        s = getSubstring(i, s);
+                        i = -1;
                     }
                     break;
             }
+            if (s.isEmpty()) {
+                return true;
+            }
         }
-        return true;
+        return false;
+    }
+
+    private String getSubstring(int i, String s) {
+        if (i == 0) {
+            if (s.length() == 2) {
+                return "";
+            }
+            s = s.substring(2);
+        } else {
+            s = s.substring(0, i) + s.substring(i + 2);
+        }
+        return s;
     }
 }
