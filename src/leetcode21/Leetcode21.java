@@ -39,21 +39,44 @@ public class Leetcode21 {
             return list1;
         }
 
-        ListNode result = new ListNode(list1.val);
-        ListNode pointer = result;
+        ListNode result = new ListNode(0);
+        ListNode last = result;
         ListNode head = list1;
         ListNode head2 = list2;
         boolean first = true;
         while (head != null && head2 != null) {
-            pointer.next = new ListNode(head.val);
-            pointer = pointer.next;
-            pointer.next = new ListNode(head2.val);
-            head = head.next;
-            head2 = head2.next;
-            pointer = pointer.next;
+            if (head.val == head2.val) {
+                if (!first) {
+                    last.next = new ListNode(head.val);
+                    last = last.next;
+                }
+                head = head.next;
+                last.next = new ListNode(head2.val);
+                head2 = head2.next;
+                last = last.next;
+            } else if (head.val > head2.val) {
+                last.next = new ListNode(head2.val);
+                head2 = head2.next;
+                last = last.next;
+            } else {
+                last.next = new ListNode(head.val);
+                head = head.next;
+                last = last.next;
+            }
+            if (first) {
+                first = false;
+            }
         }
         return result;
     }
+/*            while (head.next != null && head2.next != null) {
+        pointer.val = head.val;
+        pointer.next = new ListNode(head.val);
+        pointer = pointer.next;
+        pointer.next = new ListNode(head2.val);
+        head2 = head2.next;
+        pointer = pointer.next;
+    }*/
 
     private static ListNode insert(ListNode list, int data)
     {
