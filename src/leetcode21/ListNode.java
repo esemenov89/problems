@@ -1,7 +1,5 @@
 package leetcode21;
 
-import java.util.List;
-
 public class ListNode {
 
     int val;
