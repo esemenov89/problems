@@ -23,8 +23,9 @@ public class Leetcode70 {
         int n3 = 3;
         int n4 = 4;
         int n5 = 5;
-        int n6 = 23;
-        int n7 = 45;
+        int n6 = 6;
+        int n7 = 23;
+        int n8 = 45;
         System.out.println(n1 + " = " + solution.climbStairs(n1));
         System.out.println(n2 + " = " + solution.climbStairs(n2));
         System.out.println(n3 + " = " + solution.climbStairs(n3));
@@ -32,6 +33,7 @@ public class Leetcode70 {
         System.out.println(n5 + " = " + solution.climbStairs(n5));
         System.out.println(n6 + " = " + solution.climbStairs(n6));
         System.out.println(n7 + " = " + solution.climbStairs(n7));
+        System.out.println(n7 + " = " + solution.climbStairs(n8));
     }
 
     public int climbStairs(int n) {
@@ -64,20 +66,38 @@ public class Leetcode70 {
         // 1 + 1 + 2 + 1
         // 1 + 1 + 1 + 2
         //
+        // 2 + 2 + 1
+        // 2 + 1 + 2
+        // 2 + 1 + 1
+        // 1 + 2 + 2
+        ///
+        // 6
+        // 1 + 1 + 1 + 1 + 1 + 1
+        // 2 + 2 + 2
+        // 2 + 1 + 1 + 1 + 1
+        // 1 + 2 + 1 + 1 + 1
+        // 1 + 1 + 2 + 1 + 1
+        // 1 + 1 + 1 + 2 + 1
+        // 1 + 1 + 1 + 1 + 2
+        //
         // 2 + 2 + 1 + 1
         // 2 + 1 + 2 + 1
         // 2 + 1 + 1 + 2
+        // 1 + 2 + 2 + 1
+        // 1 + 1 + 2 + 2
         //
-        // 2 + 2 + 2 + 1
-        // 2 + 2 + 1 + 2
         //
         // Кол-во позиций равно n - максимальное число позиций
         // Кол-во позиций равно n/2 (+ 1 если нечетное)- минимальное число позиций
         // Итого 1 позиция с единицами,
         // Если берем 1 двойку то кол во позиций уменьшается на 1, но кол-во вариантов становится кол-во позиций
-        int result = 1;
+        if (n == 3) {
+            return 3;
+        }
+        boolean isEven = n % 2 == 0;
+        int result = isEven ? 2 : 1;
         int k = n - 1;
-        while (k > 1) {
+        while (k > 2) {
             result = result + k;
             k = k - 1;
         }
