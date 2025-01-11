@@ -32,23 +32,65 @@ public class Leetcode88 {
 
     public static void main(String[] args) {
         Leetcode88 solution = new Leetcode88();
-        int[] nums1 = new int[]{1, 2, 3, 0, 0, 0};
-        int m = 3;
-        int[] nums2 = new int[]{2, 5, 6};
-        int n = 3;
-        solution.merge(nums1, m, nums2, n);
-        System.out.println(Arrays.toString(nums1));
+        int[] nums11 = new int[]{1, 2, 3, 0, 0, 0};
+        int m1 = 3;
+        int[] nums21 = new int[]{2, 5, 6};
+        int n1 = 3;
+        solution.merge(nums11, m1, nums21, n1);
+        System.out.println(Arrays.toString(nums11));
         //Output: [1,2,2,3,5,6]
+        int[] nums12 = new int[]{1};
+        int m2 = 1;
+        int[] nums22 = new int[0];
+        int n2 = 0;
+        solution.merge(nums12, m2, nums22, n2);
+        System.out.println(Arrays.toString(nums12));
+        //Output: [1]
+        int[] nums13 = new int[]{0};
+        int m3 = 0;
+        int[] nums23 = new int[]{1};
+        int n3 = 1;
+        solution.merge(nums13, m3, nums23, n3);
+        System.out.println(Arrays.toString(nums13));
+        //Output: [1]
+        int[] nums14 = new int[]{2,0};
+        int m4 = 1;
+        int[] nums24 = new int[]{1};
+        int n4 = 1;
+        solution.merge(nums14, m4, nums24, n4);
+        System.out.println(Arrays.toString(nums14));
+        //Output: [1,2]
     }
 
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+        if (m == 0 && n == 0) {
+            return;
+        }
         if (m == 0) {
-            nums1 = nums2;
+            System.arraycopy(nums2, 0, nums1, 0, m + n);
             return;
         }
         if (n == 0) {
             return;
         }
-
+        int[] result = new int[m + n];
+        for (int i = 0, j = 0, k = 0; k < m + n; ) {
+            if (i >= m && j < n) {
+                result[k++] = nums2[j++];
+            } else {
+                if (j >= n) {
+                    result[k++] = nums1[i++];
+                } else {
+                    if (nums1[i] < nums2[j]) {
+                        result[k++] = nums1[i++];
+                    } else {
+                        result[k++] = nums2[j++];
+                    }
+                }
+            }
+        }
+        if (m + n >= 0) {
+            System.arraycopy(result, 0, nums1, 0, m + n);
+        }
     }
 }
