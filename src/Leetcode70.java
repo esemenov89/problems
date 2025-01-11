@@ -25,29 +25,38 @@ public class Leetcode70 {
         int n5 = 5;
         int n6 = 23;
         int n7 = 45;
-        //System.out.println(solution.climbStairs(n1));
-        //System.out.println(solution.climbStairs(n2));
-        System.out.println(solution.climbStairs(n3));
-        System.out.println(solution.climbStairs(n4));
-        System.out.println(solution.climbStairs(n5));
-        System.out.println(solution.climbStairs(n6));
-        System.out.println(solution.climbStairs(n7));
+        System.out.println(n1 + " = " + solution.climbStairs(n1));
+        System.out.println(n2 + " = " + solution.climbStairs(n2));
+        System.out.println(n3 + " = " + solution.climbStairs(n3));
+        System.out.println(n4 + " = " + solution.climbStairs(n4));
+        System.out.println(n5 + " = " + solution.climbStairs(n5));
+        System.out.println(n6 + " = " + solution.climbStairs(n6));
+        System.out.println(n7 + " = " + solution.climbStairs(n7));
     }
 
     public int climbStairs(int n) {
         // Сколько вариантов набора пинкода из 4 цифр: 10 в степени 4 - 1
         // так как у меня 2 цифры то получается 2 в степени n - 1
         // Не тут чето еще нужно
+        // 1
+        // 1
+        ///
+        // 2
+        // 1 + 1
+        // 2
+        ///
         // 3
         // 1 + 1 + 1
         // 2 + 1
         // 1 + 2
+        ///
         // 4
         // 1 + 1 + 1 + 1
         // 2 + 2
         // 2 + 1 + 1
         // 1 + 2 + 1
         // 1 + 1 + 2
+        ///
         // 5
         // 1 + 1 + 1 + 1 + 1
         // 2 + 1 + 1 + 1
