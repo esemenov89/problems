@@ -1,6 +1,5 @@
 package studyplan.leetcode75;
 
-import java.util.Arrays;
 import java.util.Date;
 
 public class Leetcode1679_leetcode75 {
@@ -40,43 +39,66 @@ Constraints:
     public static void main(String[] args) {
         Leetcode1679_leetcode75 solution = new Leetcode1679_leetcode75();
         long startDate = new Date().getTime();
-        System.out.println("height");
-        int[] height = new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7};
-        System.out.println(solution.maxArea(height) + " seconds:" + (new Date().getTime() - startDate) / 1000);
+        System.out.println("nums");
+        int[] nums = new int[]{1, 2, 3, 4};
+        int k = 5;
+        System.out.println(solution.maxOperations(nums, k) + " seconds:" + (new Date().getTime() - startDate) / 1000);
         System.out.println("-----");
-        //Output: 49
+        //Output: 2
         startDate = new Date().getTime();
-        int[] height2 = new int[]{1, 1};
-        System.out.println(solution.maxArea(height2) + " seconds:" + (new Date().getTime() - startDate) / 1000);
+        System.out.println("nums2");
+        int[] nums2 = new int[]{3, 1, 3, 4, 3};
+        int k2 = 6;
+        System.out.println(solution.maxOperations(nums2, k2) + " seconds:" + (new Date().getTime() - startDate) / 1000);
         System.out.println("-----");
-        // Output: 1
+        //Output: 1
         startDate = new Date().getTime();
-        int[] height3 = new int[100000];
-        Arrays.fill(height3, 1);
-        System.out.println(solution.maxArea(height3) + " seconds:" + (new Date().getTime() - startDate) / 1000);
+        System.out.println("nums3");
+        int[] nums3 = new int[100000];
+        int k3 = 1000000000;
+        for (int i = 0; i < nums3.length; i++) {
+            if (i % 2 == 0) {
+                nums3[i] = 1000000000 - 1;
+            } else {
+                nums3[i] = 1;
+            }
+        }
+        System.out.println(solution.maxOperations(nums3, k3) + " seconds:" + (new Date().getTime() - startDate) / 1000);
         System.out.println("-----");
-        // Output: 99999
+        //Output: 50000
         startDate = new Date().getTime();
-        int[] height4 = new int[100000];
-        Arrays.fill(height4, 10000);
-        System.out.println(solution.maxArea(height4) + " seconds:" + (new Date().getTime() - startDate) / 1000);
+        System.out.println("nums4");
+        int[] nums4 = new int[100000];
+        int k4 = 1000000000;
+        for (int i = 0; i < nums4.length / 2; i++) {
+            nums4[i] = 1000000000 - 1;
+        }
+        for (int i = nums4.length / 2; i < nums4.length; i++) {
+            nums4[i] = 1;
+        }
+        System.out.println(solution.maxOperations(nums4, k4) + " seconds:" + (new Date().getTime() - startDate) / 1000);
         System.out.println("-----");
-        // Output: 999990000
+        //Output: 50000
     }
 
-    public int maxArea(int[] height) {
+    public int maxOperations(int[] nums, int k) {
         int result = 0;
-        int s;
-        int containerVolume;
-        for (int i = 0; i < height.length; i++) {
-            if (height[i] * height.length - 1 - i < result) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
                 continue;
             }
-            for (int j = i + 1; j < height.length; j++) {
-                s = Math.min(height[i], height[j]);
-                containerVolume = s * (j - i);
-                if (containerVolume > result) {
-                    result = containerVolume;
+            if (nums[i] > k) {
+                continue;
+            }
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] == 0) {
+                    continue;
+                }
+                if (nums[i] + nums[j] == k) {
+                    result++;
+                    nums[i] = 0;
+                    nums[j] = 0;
+                    break;
                 }
             }
         }
