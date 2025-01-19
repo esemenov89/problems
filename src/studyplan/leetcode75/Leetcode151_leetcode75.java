@@ -1,3 +1,5 @@
+package studyplan.leetcode75;
+
 import java.util.Scanner;
 import java.util.Stack;
 

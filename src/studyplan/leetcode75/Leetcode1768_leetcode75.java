@@ -1,3 +1,5 @@
+package studyplan.leetcode75;
+
 import java.util.Scanner;
 
 public class Leetcode1768_leetcode75 {
