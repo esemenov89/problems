@@ -1,5 +1,6 @@
 package studyplan.leetcode75;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class Leetcode1493_leetcode75 {
@@ -57,6 +58,39 @@ nums[i] is either 0 or 1.
         System.out.println(solution.longestSubarray(nums4) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: 2
+
+        startDate = new Date().getTime();
+        int[] nums5 = new int[]{1};
+        System.out.println(solution.longestSubarray(nums5) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: 0
+
+        startDate = new Date().getTime();
+        int[] nums6 = new int[100000];
+        for (int i = 0; i < 100000; i++) {
+            nums6[i] = i % 2;
+        }
+        solution.printNums(nums6);
+        System.out.println(solution.longestSubarray(nums6) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: 3
+
+        startDate = new Date().getTime();
+        int[] nums7 = new int[100000];
+        Arrays.fill(nums7, 1);
+        solution.printNums(nums7);
+        System.out.println(solution.longestSubarray(nums7) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: 99999
+
+        startDate = new Date().getTime();
+        int[] nums8 = new int[100000];
+        Arrays.fill(nums8, 1);
+        nums8[50000] = 0;
+        solution.printNums(nums8);
+        System.out.println(solution.longestSubarray(nums8) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: 99999
     }
 
     public int longestSubarray(int[] nums) {
@@ -86,35 +120,6 @@ nums[i] is either 0 or 1.
         }
         if (result == nums.length) {
             result--;
-        }
-        return result;
-    }
-
-    public int longestOnes(int[] nums, int k) {
-        int result = -1;
-        int count;
-        int countToFlip = k;
-        for (int i = 0; i < nums.length; i++) {
-            if (result >= nums.length - i) {
-                break;
-            }
-            count = 0;
-            for (int j = i; j < nums.length; j++) {
-                if (nums[j] == 1) {
-                    count++;
-                } else {
-                    if (countToFlip == 0) {
-                        break;
-                    } else {
-                        countToFlip--;
-                        count++;
-                    }
-                }
-            }
-            countToFlip = k;
-            if (count > result) {
-                result = count;
-            }
         }
         return result;
     }
