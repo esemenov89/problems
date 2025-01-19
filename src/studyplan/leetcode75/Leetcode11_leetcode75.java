@@ -1,7 +1,7 @@
 package studyplan.leetcode75;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Date;
 
 public class Leetcode11_leetcode75 {
 
@@ -22,63 +22,54 @@ Output: 1
 Constraints:
 
 n == height.length
-2 <= n <= 105
-0 <= height[i] <= 104
+2 <= n <= 10^5
+0 <= height[i] <= 10^4
 
 */
 
     public static void main(String[] args) {
         Leetcode11_leetcode75 solution = new Leetcode11_leetcode75();
-        System.out.println("chars");
-        char[] chars = new char[]{'a','a','b','b','c','c','c'};
-        System.out.println(solution.compress(chars));
-        solution.printResultChar(chars);
+        long startDate = new Date().getTime();
+        System.out.println("height");
+        int[] height = new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7};
+        System.out.println(solution.maxArea(height) + " seconds:" + (new Date().getTime() - startDate) / 1000);
         System.out.println("-----");
-        //Output: Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
-        char[] chars2 = new char[]{'a'};
-        System.out.println("chars2");
-        System.out.println(solution.compress(chars2));
-        solution.printResultChar(chars2);
+        //Output: 49
+        startDate = new Date().getTime();
+        int[] height2 = new int[]{1, 1};
+        System.out.println(solution.maxArea(height2) + " seconds:" + (new Date().getTime() - startDate) / 1000);
         System.out.println("-----");
-        // Return 1, and the first character of the input array should be: ["a"]
-        char[] chars3 = new char[]{'a','b','b','b','b','b','b','b','b','b','b','b','b'};
-        System.out.println("chars3");
-        System.out.println(solution.compress(chars3));
-        solution.printResultChar(chars3);
+        // Output: 1
+        startDate = new Date().getTime();
+        int[] height3 = new int[100000];
+        Arrays.fill(height3, 1);
+        System.out.println(solution.maxArea(height3) + " seconds:" + (new Date().getTime() - startDate) / 1000);
         System.out.println("-----");
-        //Output: Return 6, and the first 6 characters of the input array should be: ["a","2","b","2","c","3"]
-        char[] chars4 = new char[2000];
-        for (int i = 0; i < 2000; i++) {
-            chars4[i] = 'a';
-        }
-        System.out.println("chars4");
-        System.out.println(solution.compress(chars4));
-        solution.printResultChar(chars4);
+        // Output: 99999
+        startDate = new Date().getTime();
+        int[] height4 = new int[100000];
+        Arrays.fill(height4, 10000);
+        System.out.println(solution.maxArea(height4) + " seconds:" + (new Date().getTime() - startDate) / 1000);
         System.out.println("-----");
-        //Output: Return 5, and the first 5 characters of the input array should be: ["a","2","0","0","0"]
-        char[] chars5 = new char[2000];
-        for (int i = 0; i < 2000; i++) {
-            if (i < 1000) {
-                chars5[i] = 'a';
-            } else {
-                chars5[i] = 'b';
-            }
-        }
-        System.out.println("chars5");
-        System.out.println(solution.compress(chars5));
-        solution.printResultChar(chars5);
-        System.out.println("-----");
-        //Output: Return 10, and the first 10 characters of the input array should be: ["a","1","0","0","0","b","1","0","0","0"]
-        char[] chars6 = new char[]{'a','b','c','d','e'};
-        System.out.println("chars6");
-        System.out.println(solution.compress(chars6));
-        solution.printResultChar(chars6);
-        System.out.println("-----");
-        //Output: Return 5, and the first 5 characters of the input array should be: ["a","b","c","d","e"]
+        // Output: 999990000
     }
 
     public int maxArea(int[] height) {
         int result = 0;
+        int s;
+        int containerVolume;
+        for (int i = 0; i < height.length; i++) {
+            if (height[i] * height.length - 1 - i < result) {
+                continue;
+            }
+            for (int j = i + 1; j < height.length; j++) {
+                s = Math.min(height[i], height[j]);
+                containerVolume = s * (j - i);
+                if (containerVolume > result) {
+                    result = containerVolume;
+                }
+            }
+        }
         return result;
     }
 }
