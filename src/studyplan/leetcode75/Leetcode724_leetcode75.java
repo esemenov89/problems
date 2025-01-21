@@ -6,56 +6,68 @@ import java.util.Date;
 public class Leetcode724_leetcode75 {
 
 /*
-There is a biker going on a road trip. The road trip consists of n + 1 points at different altitudes. The biker starts his trip on point 0 with altitude equal 0.
-You are given an integer array gain of length n where gain[i] is the net gain in altitude between points i​​​​​​ and i + 1 for all (0 <= i < n). Return the highest altitude of a point.
+
+Given an array of integers nums, calculate the pivot index of this array.
+The pivot index is the index where the sum of all the numbers strictly to the left of the index is equal to the sum of all the numbers strictly to the index's right.
+If the index is on the left edge of the array, then the left sum is 0 because there are no elements to the left. This also applies to the right edge of the array.
+Return the leftmost pivot index. If no such index exists, return -1.
 
 
 Example 1:
-
-Input: gain = [-5,1,5,0,-7]
-Output: 1
-Explanation: The altitudes are [0,-5,-4,1,1,-6]. The highest is 1.
+Input: nums = [1,7,3,6,5,6]
+Output: 3
+Explanation:
+The pivot index is 3.
+Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
+Right sum = nums[4] + nums[5] = 5 + 6 = 11
 
 Example 2:
-Input: gain = [-4,-3,-2,-1,4,3,2]
+Input: nums = [1,2,3]
+Output: -1
+Explanation:
+There is no index that satisfies the conditions in the problem statement.
+
+Example 3:
+Input: nums = [2,1,-1]
 Output: 0
-Explanation: The altitudes are [0,-4,-7,-9,-10,-6,-3,-1]. The highest is 0.
+Explanation:
+The pivot index is 0.
+Left sum = 0 (no elements to the left of index 0)
+Right sum = nums[1] + nums[2] = 1 + -1 = 0
 
 
 Constraints:
+1 <= nums.length <= 10^4
+-1000 <= nums[i] <= 1000
 
-n == gain.length
-1 <= n <= 100
--100 <= gain[i] <= 100
 */
 
     public static void main(String[] args) {
         Leetcode724_leetcode75 solution = new Leetcode724_leetcode75();
         long startDate = new Date().getTime();
-        int[] nums = new int[]{-5, 1, 5, 0, -7};
+        int[] nums = new int[]{1, 7, 3, 6, 5, 6};
         solution.printNums(nums);
-        System.out.println(solution.largestAltitude(nums) + " milliseconds:" + (new Date().getTime() - startDate));
+/*        System.out.println(solution.pivotIndex(nums) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
-        //Output: 1
+        //Output: 3
         startDate = new Date().getTime();
-        int[] nums2 = new int[]{-4,-3,-2,-1,4,3,2};
+        int[] nums2 = new int[]{1, 2, 3};
         solution.printNums(nums2);
-        System.out.println(solution.largestAltitude(nums2) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println(solution.pivotIndex(nums2) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
-        //Output: 0
+        //Output: -1
         startDate = new Date().getTime();
-        int[] nums3 = new int[100];
-        Arrays.fill(nums3, 100);
+        int[] nums3 = new int[]{2, 1, -1};
         solution.printNums(nums3);
-        System.out.println(solution.largestAltitude(nums3) + " milliseconds:" + (new Date().getTime() - startDate));
-        System.out.println("-----");
-        //Output: 10000
-        int[] nums4 = new int[100];
-        Arrays.fill(nums4, -100);
-        solution.printNums(nums4);
-        System.out.println(solution.largestAltitude(nums4) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println(solution.pivotIndex(nums3) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: 0
+        int[] nums4 = new int[10000 - 1];
+        Arrays.fill(nums4, 100);
+        solution.printNums(nums4);
+        System.out.println(solution.pivotIndex(nums4) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");*/
+        //Output: 4999
         int[] nums5 = new int[100];
         for (int i = 0; i < 100; i++) {
             if (i % 2 == 0) {
@@ -65,18 +77,26 @@ n == gain.length
             }
         }
         solution.printNums(nums5);
-        System.out.println(solution.largestAltitude(nums5) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println(solution.pivotIndex(nums5) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
-        //Output: 100
+        //Output: 4999
     }
 
-    public int largestAltitude(int[] gain) {
-        int result = 0;
-        int altitude = 0;
-        for (int j : gain) {
-            altitude += j;
-            if (altitude > result) {
-                result = altitude;
+    public int pivotIndex(int[] nums) {
+        int result = -1;
+        int leftSum = 0;
+        int rightSum = 0;
+        for (int num : nums) {
+            rightSum += num;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (i != 0) {
+                leftSum += nums[i - 1];
+            }
+            rightSum -= nums[i];
+            if (leftSum == rightSum) {
+                result = i;
+                break;
             }
         }
         return result;
