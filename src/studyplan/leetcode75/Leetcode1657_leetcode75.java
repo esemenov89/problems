@@ -43,7 +43,7 @@ Apply Operation 2: "baaccc" -> "abbccc"
 
 Constraints:
 
-1 <= word1.length, word2.length <= 105
+1 <= word1.length, word2.length <= 10^5
 word1 and word2 contain only lowercase English letters.
 
 */
@@ -51,16 +51,57 @@ word1 and word2 contain only lowercase English letters.
     public static void main(String[] args) {
         Leetcode1657_leetcode75 solution = new Leetcode1657_leetcode75();
         long startDate = new Date().getTime();
-        String word1 = "abc";
+/*        String word1 = "abc";
         String word2 = "bca";
         System.out.println(word1 + " " + word2);
         System.out.println(solution.closeStrings(word1, word2) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: true
+        startDate = new Date().getTime();
+        String word12 = "a";
+        String word22 = "aa";
+        System.out.println(word12 + " " + word22);
+        System.out.println(solution.closeStrings(word12, word22) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");*/
+        //Output: false
+        startDate = new Date().getTime();
+        String word13 = "cabbba";
+        String word23 = "abbccc";
+        System.out.println(word13 + " " + word23);
+        System.out.println(solution.closeStrings(word13, word23) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: true
     }
 
     public boolean closeStrings(String word1, String word2) {
+        if (word1.length() != word2.length()) {
+            return false;
+        }
+        if (onlyFirstOperations(word1, word2)) {
+            return true;
+        }
         boolean result = false;
-        return  result;
+        return result;
+    }
+
+    private boolean onlyFirstOperations(String word1, String word2) {
+        boolean result = true;
+        char[] chars1 = word1.toCharArray();
+        char[] chars2 = word2.toCharArray();
+        for (int i = 0; i < word1.length(); i++) {
+            for (int j = 0; j < word2.length(); j++) {
+                if (chars1[i] == chars2[j]) {
+                    chars1[i] = '1';
+                    chars2[j] = '1';
+                }
+            }
+        }
+        for (int i = 0; i < word1.length(); i++) {
+            if (chars1[i] != '1') {
+                result = false;
+                break;
+            }
+        }
+        return result;
     }
 }
