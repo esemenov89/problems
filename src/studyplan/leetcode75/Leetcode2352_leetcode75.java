@@ -48,6 +48,11 @@ n == grid.length == grid[i].length
 
     public int equalPairs(int[][] grid) {
         int result = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                System.out.println(grid[i][j]);
+            }
+        }
         return result;
     }
 }
