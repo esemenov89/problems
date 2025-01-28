@@ -1,9 +1,7 @@
 package studyplan.leetcode75;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Stack;
 
 public class Leetcode2390_leetcode75 {
 
@@ -52,10 +50,56 @@ The operation above can be performed on s.
         System.out.println(solution.removeStars(s) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: lecoe
+        startDate = new Date().getTime();
+        String s1 = "erase*****";
+        System.out.println(s1);
+        System.out.println(solution.removeStars(s1) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output:
+        startDate = new Date().getTime();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 100000; i++) {
+            if (i < 50001) {
+                sb.append('a');
+            } else {
+                sb.append('*');
+            }
+        }
+        String s2 = sb.toString();
+        System.out.println(s2);
+        System.out.println(solution.removeStars(s2) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: aa
+        startDate = new Date().getTime();
+        String s3 = "*";
+        System.out.println(s3);
+        System.out.println(solution.removeStars(s3) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output:
+        startDate = new Date().getTime();
+        String s4 = "a*";
+        System.out.println(s4);
+        System.out.println(solution.removeStars(s4) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output:
     }
 
     public String removeStars(String s) {
-        String result = "";
-        return result;
+        StringBuilder result = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
+        for(char c : s.toCharArray()) {
+            if(c == '*') {
+                if(stack.isEmpty()) {
+                   break;
+                }
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
+        }
+        for (Character c : stack) {
+            result.append(c);
+        }
+        return result.toString();
     }
 }
