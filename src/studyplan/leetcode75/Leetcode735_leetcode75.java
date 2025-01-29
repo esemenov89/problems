@@ -38,43 +38,55 @@ asteroids[i] != 0
     public static void main(String[] args) {
         Leetcode735_leetcode75 solution = new Leetcode735_leetcode75();
         long startDate = new Date().getTime();
-/*        int[] asteroids = new int[]{5, 10, -5};
+        int[] asteroids = new int[]{5, 10, -5};
         System.out.println(Arrays.toString(asteroids));
         System.out.println(Arrays.toString(solution.asteroidCollision(asteroids)) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: [5, 10]
         startDate = new Date().getTime();
-        int[] asteroids2 = new int[]{8,-8};
+        int[] asteroids2 = new int[]{8, -8};
         System.out.println(Arrays.toString(asteroids2));
         System.out.println(Arrays.toString(solution.asteroidCollision(asteroids2)) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
-        //Output: []*/
+        //Output: []
         startDate = new Date().getTime();
-        int[] asteroids3 = new int[]{10,2,-5};
+        int[] asteroids3 = new int[]{10, 2, -5};
         System.out.println(Arrays.toString(asteroids3));
         System.out.println(Arrays.toString(solution.asteroidCollision(asteroids3)) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: [10]
+        startDate = new Date().getTime();
+        int[] asteroids4 = new int[]{};
+        System.out.println(Arrays.toString(asteroids4));
+        System.out.println(Arrays.toString(solution.asteroidCollision(asteroids4)) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: []
+        startDate = new Date().getTime();
+        int[] asteroids5 = new int[10000];
+        for (int i = 0; i < 10000; i++) {
+            if (i < 5000) {
+                asteroids5[i] = -1000;
+            } else {
+                asteroids5[i] = 1000;
+            }
+        }
+        System.out.println(Arrays.toString(asteroids5));
+        System.out.println(Arrays.toString(solution.asteroidCollision(asteroids5)) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: []
+        startDate = new Date().getTime();
+        int[] asteroids6 = new int[]{-2, -1, 1, 2};
+        System.out.println(Arrays.toString(asteroids6));
+        System.out.println(Arrays.toString(solution.asteroidCollision(asteroids6)) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: [-2, -1, 1, 2]
     }
 
     public int[] asteroidCollision(int[] asteroids) {
         int[] result;
         Stack<Integer> stack = new Stack<>();
         for (int asteroid : asteroids) {
-            if (stack.isEmpty()) {
-                stack.push(asteroid);
-            } else {
-                if ((stack.peek() > 0 && asteroid < 0) || (stack.peek() < 0 && asteroid > 0)) {
-                    if (Math.abs(asteroid) > Math.abs(stack.peek())) {
-                        stack.pop();
-                        stack.push(asteroid);
-                    } else if (Math.abs(asteroid) == Math.abs(stack.peek())) {
-                        stack.pop();
-                    }
-                } else {
-                    stack.push(asteroid);
-                }
-            }
+            addToStack(asteroid, stack);
         }
         result = new int[stack.size()];
         int index = 0;
@@ -88,13 +100,15 @@ asteroids[i] != 0
         if (stack.isEmpty()) {
             stack.push(asteroid);
         } else {
-            if ((stack.peek() > 0 && asteroid < 0) || (stack.peek() < 0 && asteroid > 0)) {
+            if ((stack.peek() > 0 && asteroid < 0)) {
                 if (Math.abs(asteroid) > Math.abs(stack.peek())) {
                     stack.pop();
-                    stack.push(asteroid);
+                    addToStack(asteroid, stack);
                 } else if (Math.abs(asteroid) == Math.abs(stack.peek())) {
                     stack.pop();
                 }
+            } else {
+                stack.push(asteroid);
             }
         }
     }
