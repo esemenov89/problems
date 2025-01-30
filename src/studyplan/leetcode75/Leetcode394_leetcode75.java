@@ -53,22 +53,39 @@ public class Leetcode394_leetcode75 {
         System.out.println(solution.decodeString(s2) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: abcabccdcdcdef
+        String s3 = "200[abc]3[cd]ef";
+        System.out.println(s3);
+        System.out.println(solution.decodeString(s3) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: abcabccdcdcdef
     }
 
     public String decodeString(String s) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < s.length(); i++) {
-            if (DIGITS.contains(String.valueOf(s.charAt(i)))) {
-                int indexStart = s.indexOf('[', i) + 1;
-                int indexEnd = s.indexOf(']', i);
-                int count = Integer.parseInt(s.substring(i, indexStart - 1));
-                String sub = s.substring(indexStart, indexEnd);
-                result.append(sub.repeat(Math.max(0, count)));
-                i = indexEnd;
-            } else if (s.charAt(i) != '[' && s.charAt(i) != ']') {
-                result.append(s.charAt(i));
+        Stack<Integer> st = new Stack<>();
+        Stack<StringBuilder> st1 = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        int n = 0;
+
+        for (char c : s.toCharArray()) {
+            if (Character.isDigit(c)) {
+                n = n * 10 + (c - '0'); // Оч интересно
+            } else if (c == '[') {
+                st.push(n);
+                n = 0;
+                st1.push(sb);
+                sb = new StringBuilder();
+            } else if (c == ']') {
+                int k = st.pop();
+                StringBuilder temp = sb;
+                sb = st1.pop();
+                while (k-- > 0) {
+                    sb.append(temp);
+                }
+            } else {
+                sb.append(c);
             }
         }
-        return result.toString();
+
+        return sb.toString();
     }
 }
