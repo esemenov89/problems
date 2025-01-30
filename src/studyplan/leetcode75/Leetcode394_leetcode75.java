@@ -48,6 +48,11 @@ public class Leetcode394_leetcode75 {
         System.out.println(solution.decodeString(s1) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: accaccacc
+        String s2 = "2[abc]3[cd]ef";
+        System.out.println(s2);
+        System.out.println(solution.decodeString(s2) + " milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: abcabccdcdcdef
     }
 
     public String decodeString(String s) {
@@ -60,6 +65,8 @@ public class Leetcode394_leetcode75 {
                 String sub = s.substring(indexStart, indexEnd);
                 result.append(sub.repeat(Math.max(0, count)));
                 i = indexEnd;
+            } else if (s.charAt(i) != '[' && s.charAt(i) != ']') {
+                result.append(s.charAt(i));
             }
         }
         return result.toString();
