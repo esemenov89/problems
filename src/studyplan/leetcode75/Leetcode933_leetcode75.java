@@ -31,20 +31,34 @@ recentCounter.ping(3002);  // requests = [1, 100, 3001, 3002], range is [2,3002]
 
 Constraints:
 
-1 <= t <= 109
+1 <= t <= 10^9
 Each test case will call ping with strictly increasing values of t.
-At most 104 calls will be made to ping.
+At most 10^4 calls will be made to ping.
 
     */
 
     public static void main(String[] args) {
-        Leetcode933_leetcode75 solution = new Leetcode933_leetcode75();
         long startDate = new Date().getTime();
         RecentCounter recentCounter = new RecentCounter();
         System.out.println(recentCounter.ping(1));
         System.out.println(recentCounter.ping(100));
         System.out.println(recentCounter.ping(3001));
         System.out.println(recentCounter.ping(3002));
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
+        // Output: 1 2 3 3
+        RecentCounter recentCounter2 = new RecentCounter();
+        System.out.println(recentCounter2.ping(1));
+        System.out.println(recentCounter2.ping(10000));
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        // Output: 1 1
+        RecentCounter recentCounter3 = new RecentCounter();
+        for (int i = 0; i < 10000; i++) {
+            System.out.println(recentCounter3.ping(i));
+        }
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        // Output:
     }
 }

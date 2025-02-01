@@ -17,12 +17,19 @@ class RecentCounter {
         if (queue.isEmpty()) {
             queue.add(t);
         } else {
-            if (queue.peek() - t < range) {
-                queue.add(t);
-            } else {
-                queue.remove();
-            }
+            deleteFromQueue(t - range);
+            queue.add(t);
         }
         return queue.size();
+    }
+
+    private void deleteFromQueue(int currentStartOfRange) {
+        for (int i = queue.size() - 1; i >= 0; i--) {
+            if (currentStartOfRange > queue.peek()) {
+                queue.remove();
+            } else {
+                break;
+            }
+        }
     }
 }
