@@ -28,9 +28,23 @@ Constraints:
         int numRows = 5;
         System.out.println(numRows);
         List<List<Integer>> result = solution.generate(numRows);
+        solution.print(result);
         System.out.println("milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
-        solution.print(result);
+        startDate = new Date().getTime();
+        int numRows2 = 30;
+        System.out.println(numRows2);
+        List<List<Integer>> result2 = solution.generate(numRows2);
+        solution.print(result2);
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        //Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+        int numRows3 = 1;
+        System.out.println(numRows3);
+        List<List<Integer>> result3 = solution.generate(numRows3);
+        solution.print(result3);
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
         //Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
     }
 
@@ -38,11 +52,14 @@ Constraints:
         List<List<Integer>> result = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
             List<Integer> row = new ArrayList<>();
-            for (int j = 0; j < numRows; j++) {
-                if (j == 0) {
+            for (int j = 0; j < i + 1; j++) {
+                if (j == 0 || j == i) {
                     row.add(1);
+                } else {
+                    row.add(result.get(i - 1).get(j - 1) + result.get(i - 1).get(j));
                 }
             }
+            result.add(row);
         }
         return result;
     }
