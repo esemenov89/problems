@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -52,24 +52,23 @@ Follow up: Could you optimize your algorithm to use only O(rowIndex) extra space
         System.out.println(result3);
         System.out.println("milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
-        //Output: [1,1]
+        //Output: [1, 33, 528, 5456, 40920, 237336, 1107568, 4272048, 13884156, 38567100, 92561040, 193536720, 354817320, 573166440, 818809200, 1037158320, 1166803110, 1166803110, 1037158320, 818809200, 573166440, 354817320, 193536720, 92561040, 38567100, 13884156, 4272048, 1107568, 237336, 40920, 5456, 528, 33, 1]
     }
 
     public List<Integer> getRow(int rowIndex) {
-        List<Integer> result;
-        List<List<Integer>> triangle = new ArrayList<>();
+        Integer[] rowBefore = new Integer[rowIndex + 1];
+        Integer[] row = new Integer[rowIndex + 1];
         for (int i = 0; i <= rowIndex; i++) {
-            List<Integer> row = new ArrayList<>();
             for (int j = 0; j < i + 1; j++) {
                 if (j == 0 || j == i) {
-                    row.add(1);
+                    rowBefore[j] = 1;
+                    row[j] = 1;
                 } else {
-                    row.add(triangle.get(i - 1).get(j - 1) + triangle.get(i - 1).get(j));
+                    row[j] = rowBefore[j] + rowBefore[j - 1];
                 }
             }
-            triangle.add(row);
+            rowBefore = Arrays.copyOf(row, rowIndex + 1);
         }
-        result = triangle.get(rowIndex);
-        return result;
+        return Arrays.asList(row);
     }
 }
