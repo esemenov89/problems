@@ -93,7 +93,6 @@ s consists of lowercase English letters.
             } else {
                 chars2[i] = 'b';
             }
-
         }
         s6 = new String(chars2);
         System.out.println(s6);
@@ -110,7 +109,6 @@ s consists of lowercase English letters.
             } else {
                 chars3[i] = 'b';
             }
-
         }
         s7 = new String(chars3);
         System.out.println(s7);

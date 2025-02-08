@@ -38,7 +38,7 @@ n == gain.length
         System.out.println("-----");
         //Output: 1
         startDate = new Date().getTime();
-        int[] nums2 = new int[]{-4,-3,-2,-1,4,3,2};
+        int[] nums2 = new int[]{-4, -3, -2, -1, 4, 3, 2};
         solution.printNums(nums2);
         System.out.println(solution.largestAltitude(nums2) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");

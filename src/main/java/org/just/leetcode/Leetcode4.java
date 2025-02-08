@@ -67,7 +67,7 @@ nums2.length == n
         double result = 0;
         int[] merged = new int[nums1.length + nums2.length];
         int i, j = 0, k = 0;
-        for (i = 0; i < nums1.length || j < nums2.length ; ) {
+        for (i = 0; i < nums1.length || j < nums2.length; ) {
             if (i < nums1.length && j < nums2.length) {
                 if (nums1[i] > nums2[j]) {
                     merged[k++] = nums2[j++];

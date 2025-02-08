@@ -38,14 +38,14 @@ n == grid.length == grid[i].length
     public static void main(String[] args) {
         Leetcode2352_leetcode75 solution = new Leetcode2352_leetcode75();
         long startDate = new Date().getTime();
-        int[][] grid = new int[][]{{3,2,1},{1,7,6},{2,7,7}};
+        int[][] grid = new int[][]{{3, 2, 1}, {1, 7, 6}, {2, 7, 7}};
         System.out.println("grid");
         solution.printGrid(grid);
         System.out.println(solution.equalPairs(grid) + " milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
         //Output: 1
         startDate = new Date().getTime();
-        int[][] grid2 = new int[][]{{3,1,2,2},{1,4,4,5},{2,4,2,2},{2,4,2,2}};
+        int[][] grid2 = new int[][]{{3, 1, 2, 2}, {1, 4, 4, 5}, {2, 4, 2, 2}, {2, 4, 2, 2}};
         System.out.println("grid2");
         solution.printGrid(grid2);
         System.out.println(solution.equalPairs(grid2) + " milliseconds:" + (new Date().getTime() - startDate));
@@ -69,7 +69,7 @@ n == grid.length == grid[i].length
         System.out.println("-----");
         //Output: 1
         startDate = new Date().getTime();
-        int[][] grid5 = new int[][]{{11,1}, {1,11}};
+        int[][] grid5 = new int[][]{{11, 1}, {1, 11}};
         System.out.println("grid5");
         solution.printGrid(grid5);
         System.out.println(solution.equalPairs(grid5) + " milliseconds:" + (new Date().getTime() - startDate));

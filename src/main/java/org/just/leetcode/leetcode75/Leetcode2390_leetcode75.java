@@ -87,10 +87,10 @@ The operation above can be performed on s.
     public String removeStars(String s) {
         StringBuilder result = new StringBuilder();
         Stack<Character> stack = new Stack<>();
-        for(char c : s.toCharArray()) {
-            if(c == '*') {
-                if(stack.isEmpty()) {
-                   break;
+        for (char c : s.toCharArray()) {
+            if (c == '*') {
+                if (stack.isEmpty()) {
+                    break;
                 }
                 stack.pop();
             } else {

@@ -44,7 +44,7 @@ chars[i] is a lowercase English letter, uppercase English letter, digit, or symb
     public static void main(String[] args) {
         Leetcode443_leetcode75 solution = new Leetcode443_leetcode75();
         System.out.println("chars");
-        char[] chars = new char[]{'a','a','b','b','c','c','c'};
+        char[] chars = new char[]{'a', 'a', 'b', 'b', 'c', 'c', 'c'};
         System.out.println(solution.compress(chars));
         solution.printResultChar(chars);
         System.out.println("-----");
@@ -55,7 +55,7 @@ chars[i] is a lowercase English letter, uppercase English letter, digit, or symb
         solution.printResultChar(chars2);
         System.out.println("-----");
         // Return 1, and the first character of the input array should be: ["a"]
-        char[] chars3 = new char[]{'a','b','b','b','b','b','b','b','b','b','b','b','b'};
+        char[] chars3 = new char[]{'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'};
         System.out.println("chars3");
         System.out.println(solution.compress(chars3));
         solution.printResultChar(chars3);
@@ -83,7 +83,7 @@ chars[i] is a lowercase English letter, uppercase English letter, digit, or symb
         solution.printResultChar(chars5);
         System.out.println("-----");
         //Output: Return 10, and the first 10 characters of the input array should be: ["a","1","0","0","0","b","1","0","0","0"]
-        char[] chars6 = new char[]{'a','b','c','d','e'};
+        char[] chars6 = new char[]{'a', 'b', 'c', 'd', 'e'};
         System.out.println("chars6");
         System.out.println(solution.compress(chars6));
         solution.printResultChar(chars6);

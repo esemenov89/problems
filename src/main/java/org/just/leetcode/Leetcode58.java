@@ -19,7 +19,6 @@ public class Leetcode58 {
     Explanation: The last word is "joyboy" with length 6.*/
 
 
-
     public static void main(String[] args) {
         Leetcode58 solution = new Leetcode58();
         String s1 = "Hello World";

@@ -55,7 +55,7 @@ public class Leetcode88 {
         solution.merge(nums13, m3, nums23, n3);
         System.out.println(Arrays.toString(nums13));
         //Output: [1]
-        int[] nums14 = new int[]{2,0};
+        int[] nums14 = new int[]{2, 0};
         int m4 = 1;
         int[] nums24 = new int[]{1};
         int n4 = 1;

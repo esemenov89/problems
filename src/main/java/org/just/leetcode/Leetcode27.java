@@ -7,7 +7,7 @@ public class Leetcode27 {
     public static void main(String[] args) {
         Leetcode27 leetcode = new Leetcode27();
         //int[] nums = new int[]{1, 1, 2};
-        int[] nums = new int[]{0,1,2,2,3,0,4,2};
+        int[] nums = new int[]{0, 1, 2, 2, 3, 0, 4, 2};
         int k = 2;
         int n = leetcode.removeElement(nums, k);
         System.out.print(n + ", nums = [");
