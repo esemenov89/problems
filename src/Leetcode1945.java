@@ -48,20 +48,99 @@ Constraints:
 s consists of lowercase English letters.
     */
 
+    private static final Map<Character, Integer> ALPHABET = new HashMap<>();
+
+    static {
+        ALPHABET.put('a', 1);
+        ALPHABET.put('b', 2);
+        ALPHABET.put('c', 3);
+        ALPHABET.put('d', 4);
+        ALPHABET.put('e', 5);
+        ALPHABET.put('f', 6);
+        ALPHABET.put('g', 7);
+        ALPHABET.put('h', 8);
+        ALPHABET.put('i', 9);
+        ALPHABET.put('j', 10);
+        ALPHABET.put('k', 11);
+        ALPHABET.put('l', 12);
+        ALPHABET.put('m', 13);
+        ALPHABET.put('n', 14);
+        ALPHABET.put('o', 15);
+        ALPHABET.put('p', 16);
+        ALPHABET.put('q', 17);
+        ALPHABET.put('r', 18);
+        ALPHABET.put('s', 19);
+        ALPHABET.put('t', 20);
+        ALPHABET.put('u', 21);
+        ALPHABET.put('v', 22);
+        ALPHABET.put('w', 23);
+        ALPHABET.put('x', 24);
+        ALPHABET.put('y', 25);
+        ALPHABET.put('z', 26);
+    }
+
     public static void main(String[] args) {
         Leetcode1945 solution = new Leetcode1945();
         long startDate = new Date().getTime();
-        String s = "abacbc";
+        String s = "iiii";
         int k = 1;
         System.out.println(s);
         System.out.println(solution.getLucky(s, k));
         System.out.println("milliseconds:" + (new Date().getTime() - startDate));
         System.out.println("-----");
-        // Output: true
+        // Output: 36
+        startDate = new Date().getTime();
+        String s2 = "leetcode";
+        int k2 = 2;
+        System.out.println(s2);
+        System.out.println(solution.getLucky(s2, k2));
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        // Output: 6
+        startDate = new Date().getTime();
+        String s3 = "zbax";
+        int k3 = 2;
+        System.out.println(s3);
+        System.out.println(solution.getLucky(s3, k3));
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        // Output: 8
+        startDate = new Date().getTime();
+        String s4 = "z".repeat(100);
+        int k4 = 10;
+        System.out.println(s4);
+        System.out.println(solution.getLucky(s4, k4));
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        // Output: 8
+        startDate = new Date().getTime();
+        String s5 = "hvmhoasabaymnmsd";
+        int k5 = 1;
+        System.out.println(s5);
+        System.out.println(solution.getLucky(s5, k5));
+        System.out.println("milliseconds:" + (new Date().getTime() - startDate));
+        System.out.println("-----");
+        // Output: 79
     }
 
     public int getLucky(String s, int k) {
         int result = 0;
+        StringBuilder temp = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            temp.append(ALPHABET.get(s.charAt(i)));
+        }
+        Integer tempSum = 0;
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < temp.length(); j++) {
+                tempSum += Integer.parseInt(temp.charAt(j) + "");
+            }
+            if (i == k - 1) {
+                result = tempSum;
+            } else {
+                temp = new StringBuilder(String.valueOf(tempSum));
+                tempSum = 0;
+            }
+        }
         return result;
     }
 }
