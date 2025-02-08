@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution {
+
     private static final Map<Character, Integer> ALPHABET = new HashMap<>();
 
     static {

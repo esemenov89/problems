@@ -48,16 +48,36 @@ s consists of lowercase English letters.
         char[] chars = new char[1000];
         for (int i = 0; i < chars.length; i++) {
             switch (i % 10) {
-                case 0: chars[i] = 'a'; break;
-                case 1: chars[i] = 'b'; break;
-                case 2: chars[i] = 'c'; break;
-                case 3: chars[i] = 'd'; break;
-                case 4: chars[i] = 'e'; break;
-                case 5: chars[i] = 'f'; break;
-                case 6: chars[i] = 'g'; break;
-                case 7: chars[i] = 'h'; break;
-                case 8: chars[i] = 'i'; break;
-                case 9: chars[i] = 'j'; break;
+                case 0:
+                    chars[i] = 'a';
+                    break;
+                case 1:
+                    chars[i] = 'b';
+                    break;
+                case 2:
+                    chars[i] = 'c';
+                    break;
+                case 3:
+                    chars[i] = 'd';
+                    break;
+                case 4:
+                    chars[i] = 'e';
+                    break;
+                case 5:
+                    chars[i] = 'f';
+                    break;
+                case 6:
+                    chars[i] = 'g';
+                    break;
+                case 7:
+                    chars[i] = 'h';
+                    break;
+                case 8:
+                    chars[i] = 'i';
+                    break;
+                case 9:
+                    chars[i] = 'j';
+                    break;
             }
         }
         s3 = new String(chars);

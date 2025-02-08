@@ -1,4 +1,4 @@
-package org.just.leetcode.leetcode75;
+package org.just.leetcode.study.plan75;
 
 public class Leetcode334_leetcode75 {
 
