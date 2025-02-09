@@ -15,7 +15,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("provideStrings")
-    void minTimeToType(String s, String expected) {
+    void predictPartyVictory(String s, String expected) {
         String actual = solution.predictPartyVictory(s);
 
         assertThat(actual, is(expected));
@@ -23,20 +23,20 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideStrings() {
         return Stream.of(
-                Arguments.of("abc", ""),
-                Arguments.of("bza", ""),
-                Arguments.of("zjpc", ""),
-                Arguments.of(generateString(), "")
+                Arguments.of("RD", "Radiant"),
+                Arguments.of("RDD", "Dire"),
+                Arguments.of("DDRRRR", "Radiant"),
+                Arguments.of(generateString(), "Radiant")
         );
     }
 
     private static String generateString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < 101; i++) {
+        for (int i = 0; i < 10000; i++) {
             if (i % 2 == 0) {
-                stringBuilder.append("a");
+                stringBuilder.append("R");
             } else {
-                stringBuilder.append("u");
+                stringBuilder.append("D");
             }
         }
         return stringBuilder.toString();
