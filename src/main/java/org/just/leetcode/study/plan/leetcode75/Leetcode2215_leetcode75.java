@@ -1,4 +1,4 @@
-package org.just.leetcode.study.plan75;
+package org.just.leetcode.study.plan.leetcode75;
 
 import java.util.ArrayList;
 import java.util.Date;
