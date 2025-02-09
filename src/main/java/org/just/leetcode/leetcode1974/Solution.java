@@ -1,7 +1,6 @@
 package org.just.leetcode.leetcode1974;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Solution {
@@ -40,8 +39,21 @@ public class Solution {
     public int minTimeToType(String word) {
         int result = 0;
         int pointer = 1;
+        int temp1;
         for (int i = 0; i < word.length(); i++) {
-            result += Math.min(Math.abs(ALPHABET.get(word.charAt(i)) - pointer), Math.abs(pointer - (26 - ALPHABET.get(word.charAt(i)))));
+            if (pointer > ALPHABET.get(word.charAt(i))) {
+                temp1 = pointer - ALPHABET.get(word.charAt(i));
+                if (temp1 > 13) {
+                    temp1 = 26 - pointer + ALPHABET.get(word.charAt(i));
+                }
+            } else {
+                temp1 = ALPHABET.get(word.charAt(i)) - pointer;
+                if (temp1 > 13) {
+                    temp1 = 26 - ALPHABET.get(word.charAt(i)) + pointer;
+                }
+            }
+
+            result += temp1;
             result += 1;
             pointer = ALPHABET.get(word.charAt(i));
         }
