@@ -4,6 +4,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -15,24 +16,24 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("provideStrings")
-    void minTimeToType(String s, int expected) {
-        int actual = solution.isPrefixString(s);
+    void minTimeToType(String s, String[] words, boolean expected) {
+        boolean actual = solution.isPrefixString(s, words);
 
         assertThat(actual, is(expected));
     }
 
     private static Stream<Arguments> provideStrings() {
         return Stream.of(
-                Arguments.of("abc", 5),
-                Arguments.of("bza", 7),
-                Arguments.of("zjpc", 34),
-                Arguments.of(generateString(), 701)
+                Arguments.of("iloveleetcode", new String[]{"i","love","leetcode","apples"}, true),
+                Arguments.of("iloveleetcode", new String[]{"apples","i","love","leetcode"}, false),
+                Arguments.of("zjpc", new String[]{"i","love","leetcode","apples"}, false),
+                Arguments.of(generateString(), generateWords(), true)
         );
     }
 
     private static String generateString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < 101; i++) {
+        for (int i = 0; i < 1000; i++) {
             if (i % 2 == 0) {
                 stringBuilder.append("a");
             } else {
@@ -40,5 +41,11 @@ public class SolutionTest {
             }
         }
         return stringBuilder.toString();
+    }
+
+    private static String[] generateWords() {
+        String[] words = new String[100];
+        Arrays.fill(words, "au".repeat(10));
+        return words;
     }
 }
