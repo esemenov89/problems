@@ -24,10 +24,10 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideStrings() {
         return Stream.of(
-                Arguments.of(new String[]{"a","abc","bc","d"}, "abc", 1),
-                Arguments.of(new String[]{"a","b","c"}, "aaaaabbbbb", 1),
-                Arguments.of(new String[]{"a","a","a"}, "ab", 1),
-                Arguments.of(generatePatterns(), generateString(), 1)
+                Arguments.of(new String[]{"a","abc","bc","d"}, "abc", 3),
+                Arguments.of(new String[]{"a","b","c"}, "aaaaabbbbb", 2),
+                Arguments.of(new String[]{"a","a","a"}, "ab", 3),
+                Arguments.of(generatePatterns(), generateString(), 100)
         );
     }
 
