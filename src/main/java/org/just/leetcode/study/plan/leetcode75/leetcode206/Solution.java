@@ -3,32 +3,42 @@ package org.just.leetcode.study.plan.leetcode75.leetcode206;
 public class Solution {
 
     public ListNode reverseList(ListNode head) {
-        ListNode result = new ListNode(0);
-        return result;
-    }
-
-    public ListNode oddEvenList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
+        ListNode copyOfHead = head;
         ListNode result = new ListNode(head.val);
-        ListNode even = new ListNode(head.next.val);
-        ListNode lastResult = result;
-        ListNode lastEven = even;
-        int index = 0;
-        while (head != null) {
-            if (index != 0 && index % 2 == 0) {
-                lastResult.next = new ListNode(head.val);
-                lastResult = lastResult.next;
+        ListNode last = result;
+        int sizeOfListNode = 1;
+        int iterations = -1;
+        int innerIterations = -1;
+        while (iterations != 0) {
+            while (innerIterations != 0) {
+                head = head.next;
+                sizeOfListNode++;
+                innerIterations--;
+                if (head.next == null || innerIterations == 1) {
+                    if (iterations == -1) {
+                        last.val = head.val;
+                    } else {
+                        last.next = new ListNode(head.val);
+                        last = last.next;
+                    }
+                    break;
+                }
             }
-            if (index != 1 && index % 2 == 1) {
-                lastEven.next = new ListNode(head.val);
-                lastEven = lastEven.next;
+            if (iterations == -1) {
+                iterations = sizeOfListNode - 1;
+            } else {
+                iterations--;
             }
-            head = head.next;
-            index++;
+            innerIterations = iterations;
+            head = copyOfHead;
+            if (innerIterations == 1) {
+                last.next = new ListNode(head.val);
+                break;
+            }
         }
-        lastResult.next = even;
         return result;
     }
 }
