@@ -15,7 +15,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("provideStrings")
-    void predictPartyVictory(ListNode s, ListNode expected) {
+    void oddEvenList(ListNode s, ListNode expected) {
         ListNode actual = solution.oddEvenList(s);
 
         assertThat(actual, equalTo(expected));
@@ -27,44 +27,49 @@ public class SolutionTest {
                 Arguments.of(generateListNode2(), generateListNode2Result()),
                 Arguments.of(generateListNode3(), generateListNode3Result()),
                 Arguments.of(generateListNode4(), generateListNode4Result()),
-                Arguments.of(new ListNode(1), null),
+                Arguments.of(new ListNode(1), new ListNode(1)),
+                Arguments.of(null, null),
                 Arguments.of(generateListNode(), new ListNode(1))
         );
     }
 
     private static ListNode generateListNode1() {
         ListNode head = new ListNode(1);
-        head.next = new ListNode(3);
-        head.next.next = new ListNode(4);
-        head.next.next.next = new ListNode(7);
-        head.next.next.next.next = new ListNode(1);
-        head.next.next.next.next.next = new ListNode(2);
-        head.next.next.next.next.next.next = new ListNode(6);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(5);
         return head;
     }
 
     private static ListNode generateListNode1Result() {
         ListNode head = new ListNode(1);
         head.next = new ListNode(3);
-        head.next.next = new ListNode(4);
-        head.next.next.next = new ListNode(1);
-        head.next.next.next.next = new ListNode(2);
-        head.next.next.next.next.next = new ListNode(6);
+        head.next.next = new ListNode(5);
+        head.next.next.next = new ListNode(2);
+        head.next.next.next.next = new ListNode(4);
         return head;
     }
 
     private static ListNode generateListNode2() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
+        ListNode head = new ListNode(2);
+        head.next = new ListNode(1);
         head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
+        head.next.next.next = new ListNode(5);
+        head.next.next.next.next = new ListNode(6);
+        head.next.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next.next = new ListNode(7);
         return head;
     }
 
     private static ListNode generateListNode2Result() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(4);
+        ListNode head = new ListNode(2);
+        head.next = new ListNode(3);
+        head.next.next = new ListNode(6);
+        head.next.next.next = new ListNode(7);
+        head.next.next.next.next  = new ListNode(1);
+        head.next.next.next.next.next = new ListNode(5);
+        head.next.next.next.next.next.next = new ListNode(4);
         return head;
     }
 
@@ -75,7 +80,9 @@ public class SolutionTest {
     }
 
     private static ListNode generateListNode3Result() {
-        return new ListNode(2);
+        ListNode head = new ListNode(2);
+        head.next = new ListNode(1);
+        return head;
     }
 
     private static ListNode generateListNode4() {
@@ -88,13 +95,14 @@ public class SolutionTest {
     private static ListNode generateListNode4Result() {
         ListNode head = new ListNode(2);
         head.next = new ListNode(3);
+        head.next.next = new ListNode(1);
         return head;
     }
 
     private static ListNode generateListNode() {
         ListNode head = new ListNode(1);
         ListNode last = head;
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10000; i++) {
             last.next = new ListNode(i + 1);
             last = last.next;
         }

@@ -15,7 +15,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("provideStrings")
-    void predictPartyVictory(ListNode s, ListNode expected) {
+    void deleteMiddle(ListNode s, ListNode expected) {
         ListNode actual = solution.deleteMiddle(s);
 
         assertThat(actual, equalTo(expected));
