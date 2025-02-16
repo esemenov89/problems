@@ -2,6 +2,7 @@ package org.just.leetcode.leetcode10;
 
 public class Solution {
 
+    // TODO: Откладываю, решу как-нибудь потом
     public boolean isMatch(String s, String p) {
         boolean result = true;
         if (s.length() != p.length() && !p.contains("*")) {
