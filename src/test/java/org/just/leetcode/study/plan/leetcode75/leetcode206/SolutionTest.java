@@ -14,14 +14,14 @@ public class SolutionTest {
     Solution solution = new Solution();
 
     @ParameterizedTest
-    @MethodSource("provideStrings")
+    @MethodSource("provideArguments")
     void oddEvenList(ListNode s, ListNode expected) {
         ListNode actual = solution.reverseList(s);
 
         assertThat(actual, equalTo(expected));
     }
 
-    private static Stream<Arguments> provideStrings() {
+    private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(generateListNode1(), generateListNode1Result()),
                 Arguments.of(generateListNode2(), generateListNode2Result()),

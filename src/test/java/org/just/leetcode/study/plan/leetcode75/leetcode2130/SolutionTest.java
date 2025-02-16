@@ -14,14 +14,14 @@ public class SolutionTest {
     Solution solution = new Solution();
 
     @ParameterizedTest
-    @MethodSource("provideStrings")
+    @MethodSource("provideArguments")
     void pairSum(ListNode s, int expected) {
         int actual = solution.pairSum(s);
 
         assertThat(actual, is(expected));
     }
 
-    private static Stream<Arguments> provideStrings() {
+    private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(generateListNode1(), 6),
                 Arguments.of(generateListNode2(), 7),
