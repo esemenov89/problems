@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SolutionTest {
@@ -18,69 +18,62 @@ public class SolutionTest {
     void pairSum(ListNode s, int expected) {
         int actual = solution.pairSum(s);
 
-        assertThat(actual, equalTo(expected));
+        assertThat(actual, is(expected));
     }
 
     private static Stream<Arguments> provideStrings() {
         return Stream.of(
-                Arguments.of(generateListNode1(), generateListNode1Result()),
-                Arguments.of(generateListNode2(), generateListNode2Result()),
-                Arguments.of(generateListNode3(), generateListNode3Result()),
-                Arguments.of(new ListNode(1), new ListNode(1)),
-                Arguments.of(null, null),
-                Arguments.of(generateListNode(), new ListNode(1))
+                Arguments.of(generateListNode1(), 6),
+                Arguments.of(generateListNode2(), 7),
+                Arguments.of(generateListNode3(), 100001),
+                Arguments.of(generateListNode4(), 11),
+                Arguments.of(generateListNode(), 100001)
         );
     }
 
     private static ListNode generateListNode1() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-        return head;
-    }
-
-    private static ListNode generateListNode1Result() {
         ListNode head = new ListNode(5);
         head.next = new ListNode(4);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(2);
-        head.next.next.next.next = new ListNode(1);
+        head.next.next = new ListNode(2);
+        head.next.next.next = new ListNode(1);
         return head;
     }
 
     private static ListNode generateListNode2() {
-        ListNode head = new ListNode(1);
+        ListNode head = new ListNode(4);
         head.next = new ListNode(2);
-        return head;
-    }
-
-    private static ListNode generateListNode2Result() {
-        ListNode head = new ListNode(2);
-        head.next = new ListNode(1);
+        head.next.next = new ListNode(2);
+        head.next.next.next = new ListNode(3);
         return head;
     }
 
     private static ListNode generateListNode3() {
         ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
+        head.next = new ListNode(100000);
         return head;
     }
 
-    private static ListNode generateListNode3Result() {
-        ListNode head = new ListNode(3);
-        head.next = new ListNode(2);
+    private static ListNode generateListNode4() {
+        ListNode head = new ListNode(10);
+        head.next = new ListNode(1);
         head.next.next = new ListNode(1);
+        head.next.next.next = new ListNode(1);
+        head.next.next.next.next = new ListNode(1);
+        head.next.next.next.next.next = new ListNode(1);
+        head.next.next.next.next.next.next = new ListNode(1);
+        head.next.next.next.next.next.next.next = new ListNode(1);
         return head;
     }
 
     private static ListNode generateListNode() {
         ListNode head = new ListNode(1);
         ListNode last = head;
-        for (int i = 0; i < 5000; i++) {
-            last.next = new ListNode(i + 1);
+        for (int i = 0; i < 5000 - 1; i++) {
+            if (i == 0 || i == 5000 - 2) {
+                last.next = new ListNode(100000);
+            } else {
+                last.next = new ListNode(1);
+            }
             last = last.next;
         }
         return head;

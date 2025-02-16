@@ -1,48 +1,31 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode2130;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution {
 
     public int pairSum(ListNode head) {
         int result = 0;
-        return result;
-    }
-
-    public ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
+        int sizeOfListNode = 0;
         ListNode copyOfHead = head;
-        ListNode result = new ListNode(head.val);
-        ListNode last = result;
-        int sizeOfListNode = 1;
-        int iterations = -1;
-        int innerIterations = -1;
-        while (iterations != 0) {
-            while (innerIterations != 0) {
-                head = head.next;
-                sizeOfListNode++;
-                innerIterations--;
-                if (head.next == null || innerIterations == 1) {
-                    if (iterations == -1) {
-                        last.val = head.val;
-                    } else {
-                        last.next = new ListNode(head.val);
-                        last = last.next;
-                    }
-                    break;
+        Map<Integer, Integer> map = new HashMap<>();
+        while (head != null) {
+            sizeOfListNode++;
+            head = head.next;
+        }
+        int index = 0;
+        head = copyOfHead;
+        while (head != null) {
+            if (index < sizeOfListNode / 2) {
+                map.put(index, head.val);
+            } else {
+                if (map.get(sizeOfListNode - index - 1) + head.val > result) {
+                    result = map.get(sizeOfListNode - index - 1) + head.val;
                 }
             }
-            if (iterations == -1) {
-                iterations = sizeOfListNode - 1;
-            } else {
-                iterations--;
-            }
-            innerIterations = iterations;
-            head = copyOfHead;
-            if (innerIterations == 1) {
-                last.next = new ListNode(head.val);
-                break;
-            }
+            head = head.next;
+            index++;
         }
         return result;
     }
