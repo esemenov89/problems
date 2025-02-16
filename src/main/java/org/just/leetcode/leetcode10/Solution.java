@@ -11,37 +11,62 @@ public class Solution {
         char[] charsP = p.toCharArray();
         int j = 0;
         int startInterval = 0;
-        int endInterval = 0;
-        for (int i = 0; i < charsS.length; i++) {
-            if (i > 0 && charsS[i] != charsS[i - 1]) {
+        int endInterval;
+        for (int i = 0; i <= charsS.length; i++) {
+            if (i == charsS.length || (i > 0 && charsS[i] != charsS[i - 1])) {
                 endInterval = i;
-                if (!validInterval(s.substring(startInterval, endInterval), j,charsP)) {
+                j = validInterval(s.substring(startInterval, endInterval), j, charsP, endInterval == charsS.length);
+                if (j == -1) {
                     return false;
                 }
+                startInterval = i;
             }
+        }
+        if ((j == charsP.length - 1 && charsP[j] != '*') || j < charsP.length - 1) {
+            return false;
         }
         return result;
     }
-    private boolean validInterval(String s, int j, char[] p) {
-        boolean result = true;
+
+    private int validInterval(String s, int j, char[] p, boolean lastInterval) {
+        int count = 0;
         for (int i = 0; i < s.length(); i++) {
+            if (j > p.length - 1) {
+                return -1;
+            }
             if (s.charAt(i) == p[j] || p[j] == '.') {
                 j++;
+                count++;
+                if (lastInterval && j < p.length && i == s.length() - 1 && p[j] != '*') {
+                    return -1;
+                }
             } else {
-                if (p[j] == '*') {
-                    if (p[j - 1] == s.charAt(i) || p[j - 1] == '.') {
-                        if (j < p.length - 1) {
-                            if (p[j + 1] == s.charAt(i)) {
-                                while (p[j] == s.charAt(i) && j < p.length - 1) {
-                                    j++;
-                                }
-                                return true;
+                if (p[j] == '*' && (p[j - 1] == s.charAt(i) || p[j - 1] == '.')) {
+                    if (j < p.length - 1) {
+                        j++;
+                        if (p[j] == s.charAt(i) || p[j] == '.') {
+                            count = s.length() - count;
+                            while (j < (lastInterval ? p.length : p.length - 1) && (p[j] == s.charAt(i) || p[j] == '.') && count > 0) {
+                                j++;
+                                count--;
                             }
+                            return j;
                         }
+                    }
+                    return j;
+                } else {
+                    if (j < p.length - 1 && p[j + 1] == '*') {
+                        j += 2;
+                        i--;
+                    } else {
+                        return -1;
                     }
                 }
             }
         }
-        return result;
+        if (j < p.length - 1 && p[j] == '*') {
+            j++;
+        }
+        return j;
     }
 }

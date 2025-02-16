@@ -23,21 +23,39 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-/*                Arguments.of("aa", "a", false),
+                Arguments.of("aaa", "ab*a*c*a", true),
+                Arguments.of("mississippi", "mis*is*ip*.", true),
+                Arguments.of("mississippi", "mis*is*p*.", false),
+                Arguments.of("aab", "c*a*b*", true),
+                Arguments.of("aab", "c*d*e*a*b*", true),
+                Arguments.of("aab", "c*.*e*a*b*", true),
+                Arguments.of("aaabbb", "a*.b*.", true),
+                Arguments.of("aa", "a", false),
                 Arguments.of("aa", "a*", true),
-                Arguments.of("ab", ".*", true),*/
+                Arguments.of("ab", ".*", true),
                 Arguments.of("aaabbb", "a.*b.*", true),
+                Arguments.of("aaabbbccc", "a*b*c*", true),
                 Arguments.of("aaabbb", "a*b...", false),
+                Arguments.of("aaabbb", "a*..b..", true),
+                Arguments.of("aaabbb", "a*b*..", true),
+                Arguments.of("aaabbb", "a*b*...", false),
                 Arguments.of("aaabbb", "a..*b..*", true),
-                Arguments.of("abcabcdef", 6),
-                Arguments.of(" ", 1),
-                Arguments.of(generateString(), 2)
+                Arguments.of("ef", "ef", true),
+                Arguments.of("abcabcdef", "abcabcdef", true),
+                Arguments.of("a", "a", true),
+                Arguments.of("a", "b", false),
+                Arguments.of("a", ".", true),
+                Arguments.of(generateString(), "a*", false),
+                Arguments.of(generateString2(), "a*", true),
+                Arguments.of(generateString2(), generatePattern(), true),
+                Arguments.of(generateString2(), generatePattern2(), true),
+                Arguments.of(generateString2(), generatePattern3(), false)
         );
     }
 
     private static String generateString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 20; i++) {
             if (i % 2 == 0) {
                 stringBuilder.append("a");
             } else {
@@ -45,5 +63,23 @@ public class SolutionTest {
             }
         }
         return stringBuilder.toString();
+    }
+
+    private static String generateString2() {
+        return "a".repeat(20);
+    }
+
+    private static String generatePattern() {
+        return ".".repeat(20);
+    }
+
+    private static String generatePattern2() {
+        String s = ".".repeat(20) + '*';
+        return s;
+    }
+
+    private static String generatePattern3() {
+        String s = ".".repeat(20) + '*' + 'b';
+        return s;
     }
 }
