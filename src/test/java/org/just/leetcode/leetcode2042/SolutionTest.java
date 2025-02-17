@@ -24,25 +24,19 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("1 box has 3 blue 4 red 6 green and 12 yellow marbles", true),
-                Arguments.of("hello world 5 x 5", true),
-                Arguments.of("sunset is at 7 51 pm overnight lows will be in the low 50 and 60 s", true),
-                Arguments.of(new String[]{"d", "b", "b", "b", "c", "c", "a"}, 2, "a"),
-                Arguments.of(new String[]{"d", "b", "b", "b", "c", "c", "a"}, 10, ""),
-                Arguments.of(generateStrings(), 1, "aa"),
-                Arguments.of(new String[]{"a"}, 3, ""),
-                Arguments.of(new String[]{"a"}, 1, "a")
+                Arguments.of("hello world 5 x 5", false),
+                Arguments.of("sunset is at 7 51 pm overnight lows will be in the low 50 and 60 s", false),
+                Arguments.of("sunset is at 7 51 52 pm overnight lows will be in the low 53 and 60 s", true),
+                Arguments.of("12 10", false),
+                Arguments.of(generateString(), true)
         );
     }
 
-    private static String[] generateStrings() {
-        String[] arr = new String[1000];
-        for (int i = 0; i < 1000; i++) {
-            if (i == 800) {
-                arr[i] = "aa";
-            } else {
-                arr[i] = "u";
-            }
+    private static String generateString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < 200; i++) {
+            stringBuilder.append(i + 1).append(" ");
         }
-        return arr;
+        return stringBuilder.toString();
     }
 }
