@@ -23,10 +23,9 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of("hello", 13),
-                Arguments.of("zaz", 50),
-                Arguments.of("zz", 0),
-                Arguments.of("abc".repeat(33), 130)
+                Arguments.of("1.1.1.1", "1[.]1[.]1[.]1"),
+                Arguments.of("255.100.50.0", "255[.]100[.]50[.]0"),
+                Arguments.of("10.11.12.13", "10[.]11[.]12[.]13")
         );
     }
 }
