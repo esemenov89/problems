@@ -15,7 +15,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("provideArguments")
-    void kthDistinct(String s, boolean expected) {
+    void areNumbersAscending(String s, boolean expected) {
         boolean actual = solution.areNumbersAscending(s);
 
         assertThat(actual, is(expected));
