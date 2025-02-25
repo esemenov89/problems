@@ -16,7 +16,7 @@ public class SolutionTest {
     @ParameterizedTest
     @MethodSource("provideArguments")
     void testSolution(double arg1, double[] expected) {
-        double[] actual = solution.convertTemperature(arg1);
+        double[] actual = solution.convertTemperature(arg1); // test commit
 
         assertThat(actual, is(expected));
     }
