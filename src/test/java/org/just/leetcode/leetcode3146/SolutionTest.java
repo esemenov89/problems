@@ -7,7 +7,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class SolutionTest {
@@ -26,14 +25,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("abc", "bac", 2),
                 Arguments.of("abcde", "edbac", 12),
-                Arguments.of("cad", new String[]{"cc", "acd", "b", "ba", "bac", "bad", "ac", "d"}, 4),
-                Arguments.of("abc", generateStrings(), 10000)
+                Arguments.of("abcdefghijklmnopqrstuvwxyz", "bcdefghijklmnopqrstuvwxyza", 50)
         );
-    }
-
-    private static String[] generateStrings() {
-        String[] result = new String[10000];
-        Arrays.fill(result, "abcbcacbac");
-        return result;
     }
 }

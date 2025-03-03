@@ -6,7 +6,7 @@ public class Solution {
         int result = 0;
         char[] sChars = s.toCharArray();
         for (int i = 0; i < sChars.length; i++) {
-            result+= Math.abs(i - t.indexOf(sChars[i]));
+            result += Math.abs(i - t.indexOf(sChars[i]));
         }
         return result;
     }
