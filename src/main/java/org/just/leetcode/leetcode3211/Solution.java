@@ -1,7 +1,9 @@
 package org.just.leetcode.leetcode3211;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Solution {
 
@@ -18,12 +20,30 @@ public class Solution {
             result.add("10");
             return result;
         }
-        String baseString = "0".repeat(n);
-        char[] baseChars = baseString.toCharArray();
-        for (int i = 0; i < baseChars.length; i++) {
-
+        int max = Integer.parseInt("1".repeat(n), 2);
+        String string;
+        Set<String> strings = new HashSet<>();
+        for (int i = 0; i <= max; i++) {
+            string = Integer.toBinaryString(i);
+            if (string.length() < n) {
+                string = "0".repeat(n - string.length()) + string;
+            }
+            if (validStrings(string)) {
+                strings.add(string);
+            }
         }
+        result.addAll(strings);
         return result;
     }
 
+    private boolean validStrings(String s) {
+        boolean result = true;
+        for (int i = 0; i < s.length(); i++) {
+            if (i > 0 && s.charAt(i) == '0' && s.charAt(i - 1) == '0') {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
 }

@@ -1,6 +1,6 @@
 package org.just.leetcode.leetcode3211;
 
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,14 +19,14 @@ public class SolutionTest {
     void testSolution(int arg1, List<String> expected) {
         List<String> actual = solution.validStrings(arg1);
 
-        assertThat(actual, is(expected));
+        assertThat(actual, equalTo(expected));
     }
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(3, List.of("010", "011", "101", "110", "111")),
+                Arguments.of(3, List.of("011", "110", "111", "101", "010")),
                 Arguments.of(1, List.of("0", "1")),
-                Arguments.of("(al)G(al)()()G", "alGalooG")
+                Arguments.of(18, List.of("011", "110", "111", "101", "010"))
         );
     }
 }
