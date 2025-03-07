@@ -1,28 +1,23 @@
 **535. Encode and Decode TinyURL**
 
-You are given a string allowed consisting of distinct characters and an array of strings words.   
-A string is consistent if all characters in the string appear in the string allowed.  
-Return the number of consistent strings in the array words.  
+TinyURL is a URL shortening service where you enter a URL such as https://leetcode.com/problems/design-tinyurl and it returns a short URL such as http://tinyurl.com/4e9iAk.   
+Design a class to encode a URL and decode a tiny URL.
+There is no restriction on how your encode/decode algorithm should work. 
+You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.
 
-**Example 1:**  
-**Input:** allowed = "ab", words = ["ad","bd","aaab","baa","badab"]  
-**Output:** 2  
-**Explanation:** Strings "aaab" and "baa" are consistent since they only contain characters 'a' and 'b'.  
+Implement the Solution class:
+Solution() Initializes the object of the system.
+String encode(String longUrl) Returns a tiny URL for the given longUrl.
+String decode(String shortUrl) Returns the original long URL for the given shortUrl. It is guaranteed that the given shortUrl was encoded by the same object.
 
-**Example 2:**  
-**Input:** allowed = "abc", words = ["a","b","c","ab","ac","bc","abc"]  
-**Output:** 7  
-**Explanation:** All strings are consistent.  
-
-**Example 3:**  
-**Input:** allowed = "cad", words = ["cc","acd","b","ba","bac","bad","ac","d"]  
-**Output:** 4  
-**Explanation:** Strings "cc", "acd", "ac", and "d" are consistent.  
-
+**Example 1:**
+**Input:** url = "https://leetcode.com/problems/design-tinyurl"
+**Output:** "https://leetcode.com/problems/design-tinyurl"
+**Explanation:**
+Solution obj = new Solution();
+string tiny = obj.encode(url); // returns the encoded tiny url.
+string ans = obj.decode(tiny); // returns the original url after decoding it.
 
 **Constraints:**
-- 1 <= words.length <= 104
-- 1 <= allowed.length <= 26
-- 1 <= words[i].length <= 10
-- The characters in allowed are distinct.
-- words[i] and allowed contain only lowercase English letters.
+- 1 <= url.length <= 104
+- url is guranteed to be a valid URL.
