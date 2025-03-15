@@ -15,7 +15,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("provideArguments")
-    void leafSimilar(TreeNode arg1, int expected) {
+    void testSolution(TreeNode arg1, int expected) {
         int actual = solution.goodNodes(arg1);
 
         assertThat(actual, is(expected));
@@ -23,66 +23,51 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(generateTreeNode1(), generateTreeNode1(), true),
-                Arguments.of(generateTreeNode21(), generateTreeNode22(), true),
-                Arguments.of(generateTreeNode31(), generateTreeNode32(), false),
-                Arguments.of(new TreeNode(1), new TreeNode(1), true),
-                Arguments.of(generateTreeNode(), generateTreeNode(), true)
+                Arguments.of(generateTreeNode1(), 4),
+                Arguments.of(generateTreeNode2(), 3),
+                Arguments.of(new TreeNode(1), 1),
+                Arguments.of(generateTreeNode4(), 4),
+                Arguments.of(generateTreeNode(), 200001)
         );
     }
 
     private static TreeNode generateTreeNode1() {
-        TreeNode left = new TreeNode(9);
-        TreeNode rightLeft = new TreeNode(15);
-        TreeNode rightRight = new TreeNode(7);
-        TreeNode right = new TreeNode(20, rightLeft, rightRight);
+        TreeNode leftLeft = new TreeNode(3);
+        TreeNode left = new TreeNode(1, leftLeft, null);
+
+        TreeNode rightLeft = new TreeNode(1);
+        TreeNode rightRight = new TreeNode(5);
+        TreeNode right = new TreeNode(4, rightLeft, rightRight);
         return new TreeNode(3, left, right);
     }
 
-    private static TreeNode generateTreeNode21() {
-        TreeNode leftRightLeft = new TreeNode(7);
-        TreeNode leftRightRight = new TreeNode(4);
-        TreeNode leftRight = new TreeNode(2, leftRightLeft, leftRightRight);
-        TreeNode leftLeft = new TreeNode(6);
-        TreeNode left = new TreeNode(5, leftLeft, leftRight);
+    private static TreeNode generateTreeNode2() {
+        TreeNode leftLeft = new TreeNode(4);
+        TreeNode leftRight = new TreeNode(2);
+        TreeNode left = new TreeNode(3, leftLeft, leftRight);
 
-        TreeNode rightLeft = new TreeNode(9);
-        TreeNode rightRight = new TreeNode(8);
-        TreeNode right = new TreeNode(1, rightLeft, rightRight);
-        return new TreeNode(3, left, right);
+        return new TreeNode(3, left, null);
     }
 
-    private static TreeNode generateTreeNode22() {
-        TreeNode leftLeft = new TreeNode(6);
-        TreeNode leftRight = new TreeNode(7);
-        TreeNode left = new TreeNode(5, leftLeft, leftRight);
+    private static TreeNode generateTreeNode4() {
+        TreeNode rightRightLeft = new TreeNode(4);
+        TreeNode rightLeft = new TreeNode(10);
+        TreeNode rightRight = new TreeNode(8, rightRightLeft, null);
+        TreeNode right = new TreeNode(4, rightLeft, rightRight);
 
-        TreeNode rightRightLeft = new TreeNode(9);
-        TreeNode rightRightRight = new TreeNode(8);
-        TreeNode rightLeft = new TreeNode(4);
-        TreeNode rightRight = new TreeNode(2, rightRightLeft, rightRightRight);
-        TreeNode right = new TreeNode(1, rightLeft, rightRight);
-        return new TreeNode(3, left, right);
-    }
-
-    private static TreeNode generateTreeNode31() {
-        TreeNode left = new TreeNode(2);
-        TreeNode right = new TreeNode(3);
-        return new TreeNode(1, left, right);
-    }
-
-    private static TreeNode generateTreeNode32() {
-        TreeNode left = new TreeNode(3);
-        TreeNode right = new TreeNode(2);
-        return new TreeNode(1, left, right);
+        return new TreeNode(2, null, right);
     }
 
     private static TreeNode generateTreeNode() {
         TreeNode root = new TreeNode(1);
-        TreeNode last = root;
-        for (int i = 0; i < 200; i++) {
-            last.left = new TreeNode(200);
-            last = last.left;
+        TreeNode lastLeft = root;
+        TreeNode lastRight = root;
+        for (int i = 0; i < 10000; i++) {
+            lastLeft.left = new TreeNode(200);
+            lastLeft = lastLeft.left;
+
+            lastRight.right = new TreeNode(200);
+            lastRight = lastRight.right;
         }
         return root;
     }

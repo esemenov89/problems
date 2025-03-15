@@ -18,22 +18,4 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
-
-    @Override
-    public String toString() {
-        TreeNode root = this;
-        StringBuilder s = new StringBuilder("[");
-        traversePreOrder(root, s);
-        return s.toString() + "]";
-    }
-
-    private void traversePreOrder(TreeNode node, StringBuilder s) {
-        if (node != null) {
-            s.append(node.val).append(", ");
-            traversePreOrder(node.left, s);
-            traversePreOrder(node.right, s);
-        } else {
-            s.append("null, ");
-        }
-    }
 }
