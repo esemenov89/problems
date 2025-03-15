@@ -24,9 +24,12 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of("IIIDIDDD", "123549876"),
-                Arguments.of("DDD", "4321"),
-                Arguments.of(new String[]{"abc", "d", "defg"}, new String[]{"abcddefg"}, true)
+                Arguments.of(List.of(List.of("phone", "blue", "pixel"), List.of("computer", "silver", "lenovo"), List.of("phone", "gold", "iphone")),
+                        "color", "silver", 1),
+                Arguments.of(List.of(List.of("phone", "blue", "pixel"), List.of("computer", "silver", "phone"), List.of("phone", "gold", "iphone")),
+                        "type", "phone", 2),
+                Arguments.of(List.of(List.of("phone", "blue", "pixel"), List.of("phone", "silver", "lenovo"), List.of("phone", "gold", "iphone")),
+                        "type", "phone", 3)
         );
     }
 }
