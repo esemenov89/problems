@@ -33,7 +33,7 @@ public class Solution {
     }
 
     private void pathSum(List<Integer> nodesValue) {
-        int sum = nodesValue.get(nodesValue.size() - 1);
+        long sum = nodesValue.get(nodesValue.size() - 1);
         if (sum == globalTargetSum) {
             globalResult++;
         }
