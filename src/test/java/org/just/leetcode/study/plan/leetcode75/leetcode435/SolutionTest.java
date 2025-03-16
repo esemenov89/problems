@@ -24,10 +24,10 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(generateTreeNode1(), 8, 3),
-                Arguments.of(generateTreeNode2(), 3),
-                Arguments.of(new TreeNode(1), 1),
-                Arguments.of(generateTreeNode4(), 4),
-                Arguments.of(generateTreeNode(), 200001)
+                Arguments.of(generateTreeNode2(), 22, 3),
+                Arguments.of(new TreeNode(1), 1, 1),
+                Arguments.of(null, 4, 0),
+                Arguments.of(generateTreeNode(), 8, 2002)
         );
     }
 
@@ -45,11 +45,18 @@ public class SolutionTest {
     }
 
     private static TreeNode generateTreeNode2() {
-        TreeNode leftLeft = new TreeNode(4);
-        TreeNode leftRight = new TreeNode(2);
-        TreeNode left = new TreeNode(3, leftLeft, leftRight);
+        TreeNode leftLeftRight = new TreeNode(2);
+        TreeNode leftLeftLeft = new TreeNode(7);
+        TreeNode leftLeft = new TreeNode(11, leftLeftLeft, leftLeftRight);
+        TreeNode left = new TreeNode(4, leftLeft, null);
 
-        return new TreeNode(3, left, null);
+        TreeNode rightRightRight = new TreeNode(1);
+        TreeNode rightRightLeft = new TreeNode(5);
+        TreeNode rightRight = new TreeNode(4, rightRightLeft, rightRightRight);
+        TreeNode rightLeft = new TreeNode(13);
+        TreeNode right = new TreeNode(8, rightLeft, rightRight);
+
+        return new TreeNode(5, left, right);
     }
 
     private static TreeNode generateTreeNode4() {
@@ -62,14 +69,14 @@ public class SolutionTest {
     }
 
     private static TreeNode generateTreeNode() {
-        TreeNode root = new TreeNode(1);
+        TreeNode root = new TreeNode(0);
         TreeNode lastLeft = root;
         TreeNode lastRight = root;
-        for (int i = 0; i < 10000; i++) {
-            lastLeft.left = new TreeNode(200);
+        for (int i = 0; i < 1000; i++) {
+            lastLeft.left = new TreeNode(8);
             lastLeft = lastLeft.left;
 
-            lastRight.right = new TreeNode(200);
+            lastRight.right = new TreeNode(8);
             lastRight = lastRight.right;
         }
         return root;

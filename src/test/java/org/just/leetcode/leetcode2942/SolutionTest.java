@@ -27,7 +27,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new String[]{"leet", "code"}, 'e', List.of(0, 1)),
                 Arguments.of(new String[]{"abc", "bcd", "aaaa", "cbc"}, 'a', List.of(0, 2)),
-                Arguments.of(new String[]{"abc","bcd","aaaa","cbc"}, 'z', List.of()),
+                Arguments.of(new String[]{"abc", "bcd", "aaaa", "cbc"}, 'z', List.of()),
                 Arguments.of(generateStrings(), 'a', getExpected())
         );
     }

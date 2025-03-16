@@ -1,14 +1,14 @@
 package org.just.leetcode.leetcode1967;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SolutionTest {
 
@@ -24,9 +24,9 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideStrings() {
         return Stream.of(
-                Arguments.of(new String[]{"a","abc","bc","d"}, "abc", 3),
-                Arguments.of(new String[]{"a","b","c"}, "aaaaabbbbb", 2),
-                Arguments.of(new String[]{"a","a","a"}, "ab", 3),
+                Arguments.of(new String[]{"a", "abc", "bc", "d"}, "abc", 3),
+                Arguments.of(new String[]{"a", "b", "c"}, "aaaaabbbbb", 2),
+                Arguments.of(new String[]{"a", "a", "a"}, "ab", 3),
                 Arguments.of(generatePatterns(), generateString(), 100)
         );
     }

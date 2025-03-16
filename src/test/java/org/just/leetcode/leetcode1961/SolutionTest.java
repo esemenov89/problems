@@ -24,9 +24,9 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideStrings() {
         return Stream.of(
-                Arguments.of("iloveleetcode", new String[]{"i","love","leetcode","apples"}, true),
-                Arguments.of("iloveleetcode", new String[]{"apples","i","love","leetcode"}, false),
-                Arguments.of("zjpc", new String[]{"i","love","leetcode","apples"}, false),
+                Arguments.of("iloveleetcode", new String[]{"i", "love", "leetcode", "apples"}, true),
+                Arguments.of("iloveleetcode", new String[]{"apples", "i", "love", "leetcode"}, false),
+                Arguments.of("zjpc", new String[]{"i", "love", "leetcode", "apples"}, false),
                 Arguments.of(generateString(), generateWords(), true)
         );
     }

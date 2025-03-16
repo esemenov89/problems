@@ -24,9 +24,9 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideStrings() {
         return Stream.of(
-                Arguments.of(new String[]{"--X","X++","X++"}, 1),
-                Arguments.of(new String[]{"++X","++X","X++"}, 3),
-                Arguments.of(new String[]{"X++","++X","--X","X--"}, 0),
+                Arguments.of(new String[]{"--X", "X++", "X++"}, 1),
+                Arguments.of(new String[]{"++X", "++X", "X++"}, 3),
+                Arguments.of(new String[]{"X++", "++X", "--X", "X--"}, 0),
                 Arguments.of(new String[]{"X++"}, 1),
                 Arguments.of(generateIncrementStrings(), 100),
                 Arguments.of(generateDecrementStrings(), -100),
@@ -38,10 +38,18 @@ public class SolutionTest {
         String[] strings = new String[100];
         for (int i = 0; i < strings.length; i++) {
             switch (i % 4) {
-                case 0: strings[i] = "X++"; break;
-                case 1: strings[i] = "--X"; break;
-                case 2: strings[i] = "++X"; break;
-                case 3: strings[i] = "--X"; break;
+                case 0:
+                    strings[i] = "X++";
+                    break;
+                case 1:
+                    strings[i] = "--X";
+                    break;
+                case 2:
+                    strings[i] = "++X";
+                    break;
+                case 3:
+                    strings[i] = "--X";
+                    break;
             }
         }
         return strings;

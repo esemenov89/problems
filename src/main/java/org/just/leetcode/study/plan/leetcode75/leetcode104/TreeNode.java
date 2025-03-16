@@ -1,7 +1,5 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode104;
 
-import org.just.leetcode.study.plan.leetcode75.leetcode328.ListNode;
-
 public class TreeNode {
 
     int val;

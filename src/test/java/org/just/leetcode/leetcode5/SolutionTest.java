@@ -31,7 +31,7 @@ public class SolutionTest {
                 Arguments.of("aba", "aba"),
                 Arguments.of("aa", "aa"),
                 Arguments.of("babad", "bab"),
-                Arguments.of("cbbd","bb"),
+                Arguments.of("cbbd", "bb"),
                 Arguments.of("pwwkew", "ww"),
                 Arguments.of("abcabcdef", "a"),
                 Arguments.of(" ", " "),
