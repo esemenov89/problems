@@ -25,7 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new String[]{"pay","attention","practice","attend"}, "at", 2),
                 Arguments.of(new String[]{"leetcode","win","loops","success"}, "code", 0),
-                Arguments.of(new String[]{"a ".repeat(100), "b ".repeat(99)}, "a", 1)
+                Arguments.of(new String[]{"a ".repeat(100), "b ".repeat(99)}, "a", 1),
+                Arguments.of(new String[]{"a ".repeat(100) + "abc", "b ".repeat(99)}, "abc", 0)
         );
     }
 }
