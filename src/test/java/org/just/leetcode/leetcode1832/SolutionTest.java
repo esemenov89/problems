@@ -25,10 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("thequickbrownfoxjumpsoverthelazydog", true),
                 Arguments.of("leetcode", false),
-                Arguments.of(new String[]{"def", "ghi"}, ""),
-                Arguments.of(new String[]{"abba", "ghi"}, "abba"),
-                Arguments.of(new String[]{"a", "ghi"}, "a"),
-                Arguments.of(new String[]{"aa", "ghi"}, "aa")
+                Arguments.of("a".repeat(1000), false),
+                Arguments.of("abcdefghijklmnopqrstuvwxyz".repeat(39), true)
         );
     }
 }
