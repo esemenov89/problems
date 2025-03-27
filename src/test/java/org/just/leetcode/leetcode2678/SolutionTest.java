@@ -23,10 +23,9 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(new String[]{"7868190130M7522","5303914400F9211","9273338290F4010"}, 2),
-                Arguments.of(new String[]{"1313579440F2036","2921522980M5644"}, 0),
-                Arguments.of("a".repeat(1000), false),
-                Arguments.of("abcdefghijklmnopqrstuvwxyz".repeat(39), true)
+                Arguments.of(new String[]{"7868190130M7522", "5303914400F9211", "9273338290F4010"}, 2),
+                Arguments.of(new String[]{"1313579440F2036", "2921522980M5644"}, 0),
+                Arguments.of(new String[]{"1313579440F2036", "2921522980M9944"}, 1)
         );
     }
 }
