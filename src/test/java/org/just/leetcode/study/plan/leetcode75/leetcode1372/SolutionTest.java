@@ -27,7 +27,9 @@ public class SolutionTest {
                 Arguments.of(generateTreeNode2(), 4),
                 Arguments.of(new TreeNode(1), 0),
                 Arguments.of(generateTreeNode3(), 2),
-                Arguments.of(generateTreeNode4(), 1)
+                Arguments.of(generateTreeNode4(), 1),
+                Arguments.of(generateTreeNode5(), 3),
+                Arguments.of(generateTreeNode6(), 2)
         );
     }
 
@@ -76,5 +78,24 @@ public class SolutionTest {
         TreeNode right = new TreeNode(1, null, new TreeNode(1));
 
         return new TreeNode(1, left, right);
+    }
+
+    private static TreeNode generateTreeNode5() {
+        TreeNode leftRightLeft = new TreeNode(1, new TreeNode(1), null);
+        TreeNode leftRight = new TreeNode(1, leftRightLeft, new TreeNode(1));
+        TreeNode left = new TreeNode(1, null, leftRight);
+
+        return new TreeNode(1, left, null);
+    }
+
+    private static TreeNode generateTreeNode6() {
+        TreeNode rightRightRight = new TreeNode(1, new TreeNode(1), null);
+
+        TreeNode rightRight = new TreeNode(1, new TreeNode(1), rightRightRight);
+
+        TreeNode left = new TreeNode(1, new TreeNode(1), new TreeNode(1));
+        TreeNode right = new TreeNode(1, new TreeNode(1), rightRight);
+
+        return new TreeNode(1, null, right);
     }
 }
