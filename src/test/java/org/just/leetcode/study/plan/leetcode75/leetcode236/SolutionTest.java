@@ -23,8 +23,8 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-/*                Arguments.of(generateTreeNode1(), new TreeNode(5), new TreeNode(1), new TreeNode(3)),
-                Arguments.of(generateTreeNode2(), new TreeNode(5), new TreeNode(4), new TreeNode(5)),*/
+                Arguments.of(generateTreeNode1(), new TreeNode(5), new TreeNode(1), new TreeNode(3)),
+                Arguments.of(generateTreeNode2(), new TreeNode(5), new TreeNode(4), new TreeNode(5)),
                 Arguments.of(generateTreeNode3(), new TreeNode(1), new TreeNode(2), new TreeNode(1)),
                 Arguments.of(generateTreeNode3(), 2),
                 Arguments.of(generateTreeNode4(), 1),

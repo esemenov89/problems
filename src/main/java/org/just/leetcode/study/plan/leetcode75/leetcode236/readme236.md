@@ -2,10 +2,7 @@
 
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.   
 According to the definition of LCA on Wikipedia:   
-“The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).” 
- 
-Zigzag length is defined as the number of nodes visited - 1. (A single node has a length of 0).  
-Return the longest ZigZag path contained in that tree.
+“The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
 
 **Example 1:**  
 ![img.png](img.png)  
