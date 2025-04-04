@@ -25,7 +25,9 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("l|*e*et|c**o|*de|", 2),
                 Arguments.of("iamprogrammer", 0),
-                Arguments.of("yo|uar|e**|b|e***au|tifu|l", 5)
+                Arguments.of("yo|uar|e**|b|e***au|tifu|l", 5),
+                Arguments.of("*".repeat(1000), 1000),
+                Arguments.of("|***|" + "*".repeat(1000), 1000)
         );
     }
 }
