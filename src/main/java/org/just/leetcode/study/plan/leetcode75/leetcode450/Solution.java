@@ -11,6 +11,7 @@ public class Solution {
 
     public TreeNode deleteNode(TreeNode root, int key) {
         TreeNode result = root;
+        breadth(root, key);
         return result;
     }
 

@@ -23,26 +23,31 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(generateTreeNode1(), 2, generateTreeNodeResult1()),
-                Arguments.of(generateTreeNode2(), 5, null),
+                Arguments.of(generateTreeNode1(), 3, generateTreeNodeResult1()),
+                Arguments.of(generateTreeNode2(), 0, generateTreeNode2()),
                 Arguments.of(generateTreeNode(), 200, generateTreeNode())
         );
     }
 
     private static TreeNode generateTreeNode1() {
-        TreeNode left = new TreeNode(2, new TreeNode(1), new TreeNode(3));
+        TreeNode left = new TreeNode(3, new TreeNode(2), new TreeNode(4));
+        TreeNode right = new TreeNode(6, null, new TreeNode(7));
 
-        return new TreeNode(4, left, new TreeNode(7));
+        return new TreeNode(5, left, right);
     }
 
     private static TreeNode generateTreeNodeResult1() {
-        return new TreeNode(2, new TreeNode(1), new TreeNode(3));
+        TreeNode left = new TreeNode(4, new TreeNode(2), null);
+        TreeNode right = new TreeNode(6, null, new TreeNode(7));
+
+        return new TreeNode(5, left, right);
     }
 
     private static TreeNode generateTreeNode2() {
-        TreeNode left = new TreeNode(2, new TreeNode(1), new TreeNode(3));
+        TreeNode left = new TreeNode(2, null, new TreeNode(4));
+        TreeNode right = new TreeNode(6, null, new TreeNode(7));
 
-        return new TreeNode(4, left, new TreeNode(7));
+        return new TreeNode(5, left, right);
     }
 
     private static TreeNode generateTreeNode3() {
