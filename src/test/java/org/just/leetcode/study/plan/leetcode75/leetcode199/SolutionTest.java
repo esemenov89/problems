@@ -24,23 +24,17 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(generateTreeNode1(), new TreeNode(5), new TreeNode(1), new TreeNode(3)),
-                Arguments.of(generateTreeNode2(), new TreeNode(5), new TreeNode(4), new TreeNode(5)),
-                Arguments.of(generateTreeNode3(), new TreeNode(1), new TreeNode(2), new TreeNode(1)),
-                Arguments.of(generateTreeNode3(), 2),
-                Arguments.of(generateTreeNode4(), 1),
-                Arguments.of(generateTreeNode5(), 3),
-                Arguments.of(generateTreeNode6(), 2)
+                Arguments.of(generateTreeNode1(), List.of(1, 3, 4)),
+                Arguments.of(generateTreeNode2(), List.of(1, 3, 4)),
+                Arguments.of(generateTreeNode3(), List.of(1, 3, 4))
         );
     }
 
     private static TreeNode generateTreeNode1() {
-        TreeNode leftRight = new TreeNode(2, new TreeNode(7), new TreeNode(4));
+        TreeNode left = new TreeNode(2, null, new TreeNode(5));
+        TreeNode right = new TreeNode(3, null, new TreeNode(4));
 
-        TreeNode left = new TreeNode(5, new TreeNode(6), leftRight);
-        TreeNode right = new TreeNode(1, new TreeNode(0), new TreeNode(8));
-
-        return new TreeNode(3, left, right);
+        return new TreeNode(1, left, right);
     }
 
     private static TreeNode generateTreeNode2() {

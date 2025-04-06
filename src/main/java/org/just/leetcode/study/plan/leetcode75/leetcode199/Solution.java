@@ -2,12 +2,15 @@ package org.just.leetcode.study.plan.leetcode75.leetcode199;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Solution {
 
     List<TreeNode> treeNodeOne = new ArrayList<>();
     List<TreeNode> treeNodeTwo = new ArrayList<>();
+    Queue<TreeNode> queue = new LinkedList<>();
     boolean foundOne = false;
     boolean foundTwo = false;
 

@@ -1,10 +1,14 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode199;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class TreeNode {
 
     int val;
     TreeNode left;
     TreeNode right;
+    Queue<TreeNode> queue = new LinkedList<>();
 
     TreeNode() {
     }
@@ -23,10 +27,11 @@ public class TreeNode {
     public String toString() {
         TreeNode root = this;
         StringBuilder s = new StringBuilder("[");
-        traversePreOrder(root, s);
-        return s.toString() + "]";
+        breadth(root, s);
+        return s + "]";
     }
 
+    // Depth First Search
     private void traversePreOrder(TreeNode node, StringBuilder s) {
         if (node != null) {
             s.append(node.val).append(", ");
@@ -34,6 +39,31 @@ public class TreeNode {
             traversePreOrder(node.right, s);
         } else {
             s.append("null, ");
+        }
+    }
+
+    // Breadth First Search
+    public void breadth(TreeNode root, StringBuilder s) {
+        if (root == null) {
+            s.append("null");
+            return;
+        }
+        queue.clear();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.remove();
+            if (node != null) {
+                s.append(node.val);
+                if (node.left != null || node.right != null) {
+                    queue.add(node.left);
+                    queue.add(node.right);
+                }
+            } else {
+                s.append("null");
+            }
+            if (!queue.isEmpty()) {
+                s.append(", ");
+            }
         }
     }
 }
