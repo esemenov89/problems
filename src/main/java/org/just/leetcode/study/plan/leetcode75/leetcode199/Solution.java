@@ -2,57 +2,80 @@ package org.just.leetcode.study.plan.leetcode75.leetcode199;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 public class Solution {
 
-    List<TreeNode> treeNodeOne = new ArrayList<>();
-    List<TreeNode> treeNodeTwo = new ArrayList<>();
-    Queue<TreeNode> queue = new LinkedList<>();
-    boolean foundOne = false;
-    boolean foundTwo = false;
+    private final List<Integer> rightSideVals = new ArrayList<>();
+    private final Queue<TreeNode> queue = new LinkedList<>();
+    private boolean onlyOne = false;
+    private int level = 0;
+    private int right = 0;
+    private final List<Map<String, Integer>> list = new ArrayList<>();
 
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
+        List<Integer> result;
+        traversePreOrder(root, 0, "0");
+        //breadthTraverse(root);
+        result = rightSideVals;
         return result;
     }
 
-    private void traversePreOrder(TreeNode node, int val1, int val2, TreeNode ancestor, List<TreeNode> ancestors) {
-        if (node != null) {
-            if (ancestor != null) {
-                if (ancestors.isEmpty() || ancestors.get(ancestors.size() - 1) != ancestor) {
-                    ancestors.add(ancestor);
+    private void breadthTraverse(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        queue.clear();
+        queue.add(root);
+        rightSideVals.add(root.val);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.remove();
+            if (node != null) {
+                if (node.left == null || node.right == null) {
+                    onlyOne = true;
+                } else {
+                    onlyOne = false;
                 }
-            }
-            if (node.val == val1) {
-                ancestors.add(node);
-                treeNodeOne = new ArrayList<>(ancestors);
-                foundOne = true;
-            }
-            if (node.val == val2) {
-                ancestors.add(node);
-                treeNodeTwo = new ArrayList<>(ancestors);
-                foundTwo = true;
-            }
-            if (!(foundOne && foundTwo)) {
-                traversePreOrder(node.left, val1, val2, node, ancestors);
-                traversePreOrder(node.right, val1, val2, node, ancestors);
+                if (node.right != null) {
+                    rightSideVals.add(node.right.val);
+                } else if (onlyOne && node.left != null) {
+                    rightSideVals.add(node.left.val);
+                }
+                queue.add(node.left);
+                queue.add(node.right);
             }
         }
     }
 
-    private List<TreeNode> getAncestors(List<TreeNode> list) {
-        List<TreeNode> result = new ArrayList<>();
-        TreeNode child = list.get(list.size() - 1);
-        result.add(child);
-        for (int i = list.size() - 2; i >= 0; i--) {
-            if (list.get(i).left == child || list.get(i).right == child) {
-                child = list.get(i);
-                result.add(child);
+    private void traversePreOrder(TreeNode node, int level, String position) {
+        if (node != null) {
+            System.out.println("level: " + level + " val: " + node.val + " position: " + position);
+            Map<String, Integer> map;
+            if (list.size() > level) {
+                map = list.get(level);
+            } else {
+                map = new HashMap<>();
+                list.add(level, map);
+            }
+            map.put(position, node.val);
+            level++;
+            traversePreOrder(node.left, level, position + 0);
+            traversePreOrder(node.right, level, position + 1);
+        }
+    }
+
+    private void fillRightSideVals() {
+        for (int i = 0; i < list.size(); i++) {
+            int maxRights = 0;
+            Map<String, Integer> map = list.get(i);
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                int foo = Integer.parseInt("1001", 2);
+                if (Integer.parseInt(entry.getKey()) > maxRights) {}
             }
         }
-        return result;
     }
 }

@@ -8,7 +8,7 @@ public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
-    Queue<TreeNode> queue = new LinkedList<>();
+    private final Queue<TreeNode> queue = new LinkedList<>();
 
     TreeNode() {
     }
@@ -43,7 +43,7 @@ public class TreeNode {
     }
 
     // Breadth First Search
-    public void breadth(TreeNode root, StringBuilder s) {
+    private void breadth(TreeNode root, StringBuilder s) {
         if (root == null) {
             s.append("null");
             return;
