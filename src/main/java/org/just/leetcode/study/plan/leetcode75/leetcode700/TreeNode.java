@@ -1,6 +1,7 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode700;
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 public class TreeNode {
@@ -29,6 +30,18 @@ public class TreeNode {
         StringBuilder s = new StringBuilder("[");
         breadth(root, s);
         return s + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        TreeNode treeNode = (TreeNode) o;
+        return val == treeNode.val && Objects.equals(left, treeNode.left) && Objects.equals(right, treeNode.right);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(val, left, right);
     }
 
     // Depth First Search
