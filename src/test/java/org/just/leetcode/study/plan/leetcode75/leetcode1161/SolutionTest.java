@@ -4,10 +4,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.List;
 import java.util.stream.Stream;
 
-import static java.util.Collections.emptyList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -27,9 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(generateTreeNode1(), 2),
                 Arguments.of(generateTreeNode2(), 2),
-                Arguments.of(generateTreeNode3(), List.of(1, 3)),
-                Arguments.of(null, emptyList()),
-                Arguments.of(generateTreeNode(), 200)
+                Arguments.of(null, 0),
+                Arguments.of(generateTreeNode(), 2)
         );
     }
 
