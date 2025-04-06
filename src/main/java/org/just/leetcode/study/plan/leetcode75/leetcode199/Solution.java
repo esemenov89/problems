@@ -3,57 +3,29 @@ package org.just.leetcode.study.plan.leetcode75.leetcode199;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 
 public class Solution {
 
     private final List<Integer> rightSideVals = new ArrayList<>();
     private final Queue<TreeNode> queue = new LinkedList<>();
-    private boolean onlyOne = false;
-    private int level = 0;
-    private int right = 0;
     private final List<Map<String, Integer>> list = new ArrayList<>();
 
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result;
         traversePreOrder(root, 0, "0");
-        //breadthTraverse(root);
+        fillRightSideVals();
         result = rightSideVals;
         return result;
     }
 
-    private void breadthTraverse(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        queue.clear();
-        queue.add(root);
-        rightSideVals.add(root.val);
-        while (!queue.isEmpty()) {
-            TreeNode node = queue.remove();
-            if (node != null) {
-                if (node.left == null || node.right == null) {
-                    onlyOne = true;
-                } else {
-                    onlyOne = false;
-                }
-                if (node.right != null) {
-                    rightSideVals.add(node.right.val);
-                } else if (onlyOne && node.left != null) {
-                    rightSideVals.add(node.left.val);
-                }
-                queue.add(node.left);
-                queue.add(node.right);
-            }
-        }
-    }
-
     private void traversePreOrder(TreeNode node, int level, String position) {
         if (node != null) {
-            System.out.println("level: " + level + " val: " + node.val + " position: " + position);
             Map<String, Integer> map;
             if (list.size() > level) {
                 map = list.get(level);
@@ -69,13 +41,39 @@ public class Solution {
     }
 
     private void fillRightSideVals() {
-        for (int i = 0; i < list.size(); i++) {
-            int maxRights = 0;
-            Map<String, Integer> map = list.get(i);
-            for (Map.Entry<String, Integer> entry : map.entrySet()) {
-                int foo = Integer.parseInt("1001", 2);
-                if (Integer.parseInt(entry.getKey()) > maxRights) {}
+        for (Map<String, Integer> stringIntegerMap : list) {
+            String key = "";
+            if (stringIntegerMap.size() == 1) {
+                rightSideVals.add(stringIntegerMap.values().iterator().next());
+                continue;
             }
+            Set<String> goods = new HashSet<>();
+            for (Map.Entry<String, Integer> entry : stringIntegerMap.entrySet()) {
+                goods.add(entry.getKey());
+            }
+            String firstKey = stringIntegerMap.entrySet().iterator().next().getKey();
+            char[] charsKey = firstKey.toCharArray();
+            for (int i = 0; i < charsKey.length; i++) {
+                Set<String> zeros = new HashSet<>();
+                Set<String> ones = new HashSet<>();
+                for (String s : goods) {
+                    if (s.charAt(i) == '0') {
+                        zeros.add(s);
+                    } else if (s.charAt(i) == '1') {
+                        ones.add(s);
+                    }
+                }
+                if (ones.size() == 1) {
+                    key = ones.iterator().next();
+                    break;
+                }
+                if (ones.size() > 1) {
+                    for (String s : zeros) {
+                        goods.remove(s);
+                    }
+                }
+            }
+            rightSideVals.add(stringIntegerMap.get(key));
         }
     }
 }

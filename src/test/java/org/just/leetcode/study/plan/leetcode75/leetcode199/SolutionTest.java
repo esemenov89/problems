@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static java.util.Collections.emptyList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -24,10 +25,17 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(generateTreeNode0(), List.of(1, 3, 4)),
+                Arguments.of(generateTreeNode0(), List.of(1, 3, 7)),
                 Arguments.of(generateTreeNode1(), List.of(1, 3, 4)),
                 Arguments.of(generateTreeNode2(), List.of(1, 3, 4, 5)),
-                Arguments.of(generateTreeNode3(), List.of(1, 3, 4))
+                Arguments.of(generateTreeNode3(), List.of(1, 3)),
+                Arguments.of(null, emptyList()),
+                Arguments.of(generateTreeNode(), List.of(1, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+                        200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+                        200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+                        200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+                        200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+                        200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200))
         );
     }
 
@@ -54,7 +62,7 @@ public class SolutionTest {
     }
 
     private static TreeNode generateTreeNode3() {
-        return new TreeNode(1, new TreeNode(2), null);
+        return new TreeNode(1, null, new TreeNode(3));
     }
 
     private static TreeNode generateTreeNode4() {
@@ -64,22 +72,17 @@ public class SolutionTest {
         return new TreeNode(1, left, right);
     }
 
-    private static TreeNode generateTreeNode5() {
-        TreeNode leftRightLeft = new TreeNode(1, new TreeNode(1), null);
-        TreeNode leftRight = new TreeNode(1, leftRightLeft, new TreeNode(1));
-        TreeNode left = new TreeNode(1, null, leftRight);
+    private static TreeNode generateTreeNode() {
+        TreeNode root = new TreeNode(1);
+        TreeNode lastLeft = root;
+        TreeNode lastRight = root;
+        for (int i = 0; i < 100; i++) {
+            lastLeft.left = new TreeNode(200);
+            lastLeft = lastLeft.left;
 
-        return new TreeNode(1, left, null);
-    }
-
-    private static TreeNode generateTreeNode6() {
-        TreeNode rightRightRight = new TreeNode(1, new TreeNode(1), null);
-
-        TreeNode rightRight = new TreeNode(1, new TreeNode(1), rightRightRight);
-
-        TreeNode left = new TreeNode(1, new TreeNode(1), new TreeNode(1));
-        TreeNode right = new TreeNode(1, new TreeNode(1), rightRight);
-
-        return new TreeNode(1, null, right);
+            lastRight.right = new TreeNode(200);
+            lastRight = lastRight.right;
+        }
+        return root;
     }
 }
