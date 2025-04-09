@@ -25,10 +25,9 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(List.of("alice", "bob", "charlie"), "abc", true),
-                Arguments.of(List.of("an", "apple"), "a", false),
-                Arguments.of(List.of("never", "gonna", "give", "up", "on", "you"), "ngguoy", true),
-                Arguments.of(generateWords(), "a".repeat(100), true)
+                Arguments.of("a1c1e1", "abcdef"),
+                Arguments.of("a1b2c3d4e", "abbdcfdhe"),
+                Arguments.of("a9b9".repeat(25), "ajbk".repeat(25))
         );
     }
 
