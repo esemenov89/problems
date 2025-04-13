@@ -4,7 +4,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -16,7 +15,7 @@ public class SolutionTest {
 
     @ParameterizedTest
     @MethodSource("provideArguments")
-    void testSolution(String arg1, int expected) {
+    void testSolution(String arg1, String expected) {
         String actual = solution.freqAlphabets(arg1);
 
         assertThat(actual, is(expected));
@@ -26,15 +25,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("10#11#12", "jkab"),
                 Arguments.of("1326#", "acz"),
-                Arguments.of(new int[]{1, 2, 3}, 0),
-                Arguments.of(new int[]{1, 2, 3, 1, 1, 3}, 4),
-                Arguments.of(generateArray(), 4950)
+                Arguments.of("26#".repeat(400), "z".repeat(400))
         );
-    }
-
-    private static int[] generateArray() {
-        int[] array = new int[100];
-        Arrays.fill(array, 1);
-        return array;
     }
 }
