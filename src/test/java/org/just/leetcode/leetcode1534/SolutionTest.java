@@ -25,19 +25,15 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new int[]{3, 0, 1, 1, 9, 7}, 7, 2, 3, 4),
                 Arguments.of(new int[]{1, 1, 2, 2, 3}, 0, 0, 1, 0),
-                Arguments.of(generateChars(), generateChars())
+                Arguments.of(generateArray(), 100, 100, 100, 161700)
         );
     }
 
-    private static char[] generateChars() {
-        char[] chars = new char[100001];
-        for (int i = 0; i < chars.length; i++) {
-            if (i % 2 == 0) {
-                chars[i] = 'a';
-            } else {
-                chars[i] = 'b';
-            }
+    private static int[] generateArray() {
+        int[] array = new int[100];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array.length - i;
         }
-        return chars;
+        return array;
     }
 }
