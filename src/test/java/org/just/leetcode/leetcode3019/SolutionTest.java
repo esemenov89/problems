@@ -25,7 +25,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("aAbBcC", 2),
                 Arguments.of("AaAaAaaA", 0),
-                Arguments.of("AaAaAaaA", 0)
+                Arguments.of("aAbB".repeat(25), 49)
         );
     }
 }
