@@ -25,20 +25,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("3902", true),
                 Arguments.of("34789", false),
-                Arguments.of("34789", false),
-                Arguments.of(generateChars(), generateChars())
+                Arguments.of("9".repeat(100), true)
         );
-    }
-
-    private static char[] generateChars() {
-        char[] chars = new char[100001];
-        for (int i = 0; i < chars.length; i++) {
-            if (i % 2 == 0) {
-                chars[i] = 'a';
-            } else {
-                chars[i] = 'b';
-            }
-        }
-        return chars;
     }
 }
