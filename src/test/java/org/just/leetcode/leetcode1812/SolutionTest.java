@@ -25,7 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("a1", false),
                 Arguments.of("h3", true),
-                Arguments.of("c7", false)
+                Arguments.of("c7", false),
+                Arguments.of("c8", true)
         );
     }
 }
