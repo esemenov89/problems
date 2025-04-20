@@ -24,7 +24,8 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("51230100", "512301"),
-                Arguments.of("123", "123")
+                Arguments.of("123", "123"),
+                Arguments.of("123" + "0".repeat(1000), "123")
         );
     }
 }
