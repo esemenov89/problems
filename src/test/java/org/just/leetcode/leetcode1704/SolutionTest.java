@@ -23,9 +23,9 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of("51230100", true),
-                Arguments.of("123", false),
-                Arguments.of("123" + "0".repeat(1000), false)
+                Arguments.of("book", true),
+                Arguments.of("textbook", false),
+                Arguments.of("ab".repeat(500), true)
         );
     }
 }
