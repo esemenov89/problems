@@ -25,7 +25,11 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("ABFCACDB", 2),
                 Arguments.of("ACBBD", 5),
-                Arguments.of("ACBBD", 5)
+                Arguments.of("AC", 2),
+                Arguments.of("A", 1),
+                Arguments.of("CDAB", 0),
+                Arguments.of("ABACDB", 0),
+                Arguments.of("ABCD".repeat(25), 0)
         );
     }
 }
