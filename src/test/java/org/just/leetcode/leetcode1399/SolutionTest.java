@@ -25,7 +25,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(13, 4),
                 Arguments.of(2, 2),
-                Arguments.of(10000, 2)
+                Arguments.of(10000, 1)
         );
     }
 }
