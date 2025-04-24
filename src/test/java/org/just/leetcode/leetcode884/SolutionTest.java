@@ -25,7 +25,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("this apple is sweet", "this apple is sour", new String[]{"sweet", "sour"}),
                 Arguments.of("apple apple", "banana", new String[]{"banana"}),
-                Arguments.of("ABCD".repeat(25), 0)
+                Arguments.of("apple apple ".repeat(100), "banana", new String[]{"banana"})
         );
     }
 }
