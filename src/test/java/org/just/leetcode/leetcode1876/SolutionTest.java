@@ -23,9 +23,9 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of("this apple is sweet", "this apple is sour", new String[]{"sweet", "sour"}),
-                Arguments.of("apple apple", "banana", new String[]{"banana"}),
-                Arguments.of("apple apple ".repeat(100), "banana", new String[]{"banana"})
+                Arguments.of("xyzzaz", 1),
+                Arguments.of("aababcabc", 4),
+                Arguments.of("abc".repeat(33), 97)
         );
     }
 }
