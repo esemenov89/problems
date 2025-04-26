@@ -27,6 +27,11 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(List.of("one.two.three","four.five","six"), '.', List.of("one","two","three","four","five","six")),
                 Arguments.of(List.of("$easy$","$problem$"), '$', List.of("easy","problem")),
+                Arguments.of(List.of(",easy,",",problem,"), ',', List.of("easy","problem")),
+                Arguments.of(List.of("#easy#","#problem#"), '#', List.of("easy","problem")),
+                Arguments.of(List.of("@easy@","@problem@"), '@', List.of("easy","problem")),
+                Arguments.of(List.of("@easy@".repeat(50),"@problem@".repeat(50)), '@',
+                        List.of("easy,".repeat(50).split(","),"problem".repeat(50).split(","))),
                 Arguments.of(List.of("|||"), '|', emptyList())
         );
     }
