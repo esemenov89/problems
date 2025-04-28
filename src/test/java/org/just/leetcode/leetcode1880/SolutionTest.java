@@ -25,7 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("acb", "cba", "cdb", true),
                 Arguments.of("aaa", "a", "aab", false),
-                Arguments.of("aaa", "a", "aaaa", true)
+                Arguments.of("aaa", "a", "aaaa", true),
+                Arguments.of("aa", "jjjjjjjj", "jjjjjjjj", true)
         );
     }
 }
