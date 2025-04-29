@@ -7,6 +7,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -25,7 +27,22 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(new String[]{"bella", "label", "roller"}, List.of("e", "l", "l")),
-                Arguments.of(new String[]{"cool", "lock", "cook"}, List.of("c", "o"))
+                Arguments.of(new String[]{"cool", "lock", "cook"}, List.of("c", "o")),
+                Arguments.of(generateWords(), generateAnswer())
         );
+    }
+
+    private static String[] generateWords() {
+        String[] words = new String[100];
+        Arrays.fill(words, "a".repeat(100));
+        return words;
+    }
+
+    private static List<String> generateAnswer() {
+        List<String> answer = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            answer.add("a");
+        }
+        return answer;
     }
 }
