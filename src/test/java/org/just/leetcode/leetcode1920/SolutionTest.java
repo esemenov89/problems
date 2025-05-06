@@ -25,8 +25,16 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new int[]{0, 2, 1, 5, 3, 4}, new int[]{0, 1, 2, 4, 5, 3}),
                 Arguments.of(new int[]{5, 0, 1, 2, 3, 4}, new int[]{4, 5, 0, 1, 2, 3}),
-                Arguments.of(new int[]{5, 0, 1, 2, 3, 4}, new int[]{4, 5, 0, 1, 2, 3}),
+                Arguments.of(generateArray(), generateArray()),
                 Arguments.of(new int[]{5, 0, 1, 2, 3, 4}, new int[]{4, 5, 0, 1, 2, 3})
         );
+    }
+
+    private static int[] generateArray() {
+        int[] result = new int[1000];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = i;
+        }
+        return result;
     }
 }
