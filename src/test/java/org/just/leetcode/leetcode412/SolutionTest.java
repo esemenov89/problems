@@ -26,7 +26,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(3, List.of("1", "2", "Fizz")),
                 Arguments.of(5, List.of("1", "2", "Fizz", "4", "Buzz")),
-                Arguments.of(15, List.of("1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"))
+                Arguments.of(15, List.of("1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz")),
+                Arguments.of(1000, List.of("1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"))
         );
     }
 }
