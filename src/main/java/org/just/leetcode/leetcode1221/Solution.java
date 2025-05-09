@@ -6,49 +6,50 @@ public class Solution {
         int result = 0;
         int r = 0;
         int l = 0;
-        // LLRRL
-        boolean rChanged = false;
-        boolean lChanged = false;
+        boolean justChanged = false;
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == 'L') {
-                if (lChanged || i == s.length() - 1) {
-                    result++;
-                    if (r == l)  {
-                        r = 0;
-                        l = 0;
-                    } else if (r > l) {
-                        r = r - l;
-                        l = 0;
-                    } else {
-                       l = l - r;
-                       r = 0;
+                if (i > 0 && s.charAt(i - 1) == 'R' && !justChanged) {
+                    while (r > 0) {
+                        if (!(i < s.length() && s.charAt(i) == 'L')) {
+                            break;
+                        }
+                        i++;
+                        r--;
                     }
-                    lChanged = false;
-                    rChanged = false;
-                } else if (i > 0 && s.charAt(i - 1) == 'R') {
-                    rChanged = true;
-                }
-                l++;
-            }
-            if (s.charAt(i) == 'R') {
-                if (rChanged || i == s.length() - 1) {
-                    result++;
-                    if (r == l)  {
-                        r = 0;
-                        l = 0;
-                    } else if (r > l) {
-                        r = r - l;
-                        l = 0;
+                    if (r == 0) {
+                        result++;
+                        i--;
                     } else {
-                        l = l - r;
-                        r = 0;
+                        result++;
+                        break;
                     }
-                    lChanged = false;
-                    rChanged = false;
-                } else if (i > 0 && s.charAt(i - 1) == 'L') {
-                    lChanged = true;
+                    justChanged = true;
+                } else {
+                    justChanged = false;
+                    l++;
                 }
-                r++;
+            } else if (s.charAt(i) == 'R') {
+                if (i > 0 && s.charAt(i - 1) == 'L' && !justChanged) {
+                    while (l > 0) {
+                        if (!(i < s.length() && s.charAt(i) == 'R')) {
+                            break;
+                        }
+                        i++;
+                        l--;
+                    }
+                    if (l == 0) {
+                        result++;
+                        i--;
+                    } else {
+                        result++;
+                        break;
+                    }
+                    justChanged = true;
+                } else {
+                    justChanged = false;
+                    r++;
+                }
             }
         }
         return result;

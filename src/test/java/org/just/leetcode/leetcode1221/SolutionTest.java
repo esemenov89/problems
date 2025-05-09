@@ -23,10 +23,13 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                //Arguments.of("RLRRLLRLRL", 4),
+                Arguments.of("RRLRRLRLLLRL", 2),
+                Arguments.of("RLRRLLRLRL", 4),
                 Arguments.of("RLRRRLLRLL", 2),
                 Arguments.of("LLLLRRRR", 1),
-                Arguments.of("RLRRLLRLRL", 4)
+                Arguments.of("RLLLLRRRLR", 3),
+                Arguments.of("RL".repeat(50), 50),
+                Arguments.of("R".repeat(50) + "L".repeat(50), 1)
         );
     }
 }
