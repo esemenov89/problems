@@ -23,7 +23,7 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of("RLRRLLRLRL", 4),
+                //Arguments.of("RLRRLLRLRL", 4),
                 Arguments.of("RLRRRLLRLL", 2),
                 Arguments.of("LLLLRRRR", 1),
                 Arguments.of("RLRRLLRLRL", 4)
