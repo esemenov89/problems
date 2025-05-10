@@ -24,7 +24,8 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("the quick brown fox jumps over the lazy dog", "vkbs bs t suepuv", "this is a secret"),
-                Arguments.of("eljuxhpwnyrdgtqkviszcfmabo", "zwx hnfx lqantp mnoeius ycgk vcnjrdb", "the five boxing wizards jump quickly")
+                Arguments.of("eljuxhpwnyrdgtqkviszcfmabo", "zwx hnfx lqantp mnoeius ycgk vcnjrdb", "the five boxing wizards jump quickly"),
+                Arguments.of("the quick brown fox jumps over the lazy dog".repeat(100), "vkbs bs t suepuv".repeat(100), "this is a secret".repeat(100))
         );
     }
 }
