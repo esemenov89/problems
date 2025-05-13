@@ -24,7 +24,8 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("abccbaacz", 'c'),
-                Arguments.of("abcdd", 'd')
+                Arguments.of("abcdd", 'd'),
+                Arguments.of("abcdefcggh", 'c')
         );
     }
 }
