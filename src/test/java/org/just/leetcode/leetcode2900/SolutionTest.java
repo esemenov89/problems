@@ -27,12 +27,24 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new String[]{"e", "a", "b"}, new int[]{0, 0, 1}, List.of("e", "b")),
                 Arguments.of(new String[]{"a", "b", "c", "d"}, new int[]{1, 0, 1, 1}, List.of("a", "b", "c")),
-                Arguments.of(generateStrings(), "aa", 1000)
+                Arguments.of(generateStrings(), generateArray(), List.of("a", "a"))
         );
     }
 
+    private static int[] generateArray() {
+        int[] arr = new int[100];
+        for (int i = 0; i < arr.length; i++) {
+            if (i % 2 == 0) {
+                arr[i] = 0;
+            } else {
+                arr[i] = 1;
+            }
+        }
+        return arr;
+    }
+
     private static String[] generateStrings() {
-        String[] arr = new String[1000];
+        String[] arr = new String[100];
         Arrays.fill(arr, "a");
         return arr;
     }
