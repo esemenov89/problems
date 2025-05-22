@@ -25,7 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new String[]{"Hello","Alaska","Dad","Peace"}, new String[]{"Alaska","Dad"}),
                 Arguments.of(new String[]{"omk"}, new String[]{}),
-                Arguments.of(new String[]{"adsdf","sfd"}, new String[]{"adsdf","sfd"})
+                Arguments.of(new String[]{"adsdf","sfd"}, new String[]{"adsdf","sfd"}),
+                Arguments.of(new String[]{"qwertyuiop","sfd"}, new String[]{"qwertyuiop","sfd"})
         );
     }
 }
