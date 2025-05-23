@@ -24,7 +24,8 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("1210", true),
-                Arguments.of("030", false)
+                Arguments.of("030", false),
+                Arguments.of("12103", false)
         );
     }
 }
