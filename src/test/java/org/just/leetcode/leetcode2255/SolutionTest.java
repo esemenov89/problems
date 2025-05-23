@@ -24,13 +24,13 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(new String[] {"a","b","c","ab","bc","abc"}, "abc", 3),
-                Arguments.of(new String[] {"a","a"}, "aa", 2),
+                Arguments.of(new String[]{"a", "b", "c", "ab", "bc", "abc"}, "abc", 3),
+                Arguments.of(new String[]{"a", "a"}, "aa", 2),
                 Arguments.of(generateStrings(), "aa", 1000)
         );
     }
 
-    private static String[] generateStrings(){
+    private static String[] generateStrings() {
         String[] arr = new String[1000];
         Arrays.fill(arr, "a");
         return arr;

@@ -1,6 +1,5 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode450;
 
-
 public class Solution {
 
     public TreeNode deleteNode(TreeNode root, int key) {

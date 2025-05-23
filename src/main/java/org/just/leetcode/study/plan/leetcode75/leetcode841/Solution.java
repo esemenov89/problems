@@ -15,14 +15,14 @@ public class Solution {
         //'seen' массив для показа того смотрели ли мы комнату или нет.
         while (!stack.isEmpty()) { // Пока есть ключи
             int node = stack.pop(); // берем крайний ключ
-            for (int nei: rooms.get(node)) // для каждого ключа
+            for (int nei : rooms.get(node)) // для каждого ключа
                 if (!seen[nei]) { // ...и комнаты который мы не видели
                     seen[nei] = true; // отмечаем что мы посещали комнату
                     stack.push(nei); // и добавляем кго в стек
                 }
         }
 
-        for (boolean v: seen)  // если хотя бы одна комната не была посещена, то отдаем фолс
+        for (boolean v : seen)  // если хотя бы одна комната не была посещена, то отдаем фолс
             if (!v) return false;
         return true;
     }

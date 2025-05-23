@@ -1,5 +1,8 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode841;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,9 +10,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SolutionTest {
 

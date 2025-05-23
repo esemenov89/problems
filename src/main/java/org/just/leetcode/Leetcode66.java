@@ -24,7 +24,6 @@ public class Leetcode66 {
     Incrementing by one gives 9 + 1 = 10.
     Thus, the result should be [1,0].*/
 
-
     public static void main(String[] args) {
         Leetcode66 solution = new Leetcode66();
         int[] digits1 = new int[]{1, 2, 3};

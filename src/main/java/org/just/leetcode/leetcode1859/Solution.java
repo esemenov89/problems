@@ -1,6 +1,5 @@
 package org.just.leetcode.leetcode1859;
 
-
 public class Solution {
 
     public String sortSentence(String s) {

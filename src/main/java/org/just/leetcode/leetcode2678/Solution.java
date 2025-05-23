@@ -1,6 +1,5 @@
 package org.just.leetcode.leetcode2678;
 
-
 public class Solution {
 
     public int countSeniors(String[] details) {

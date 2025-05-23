@@ -1,6 +1,5 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode236;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

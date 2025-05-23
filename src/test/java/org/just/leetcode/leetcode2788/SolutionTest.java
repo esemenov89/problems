@@ -1,15 +1,15 @@
 package org.just.leetcode.leetcode2788;
 
+import static java.util.Collections.emptyList;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.List;
 import java.util.stream.Stream;
-
-import static java.util.Collections.emptyList;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SolutionTest {
 
@@ -25,13 +25,13 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(List.of("one.two.three","four.five","six"), '.', List.of("one","two","three","four","five","six")),
-                Arguments.of(List.of("$easy$","$problem$"), '$', List.of("easy","problem")),
-                Arguments.of(List.of(",easy,",",problem,"), ',', List.of("easy","problem")),
-                Arguments.of(List.of("#easy#","#problem#"), '#', List.of("easy","problem")),
-                Arguments.of(List.of("@easy@","@problem@"), '@', List.of("easy","problem")),
-                Arguments.of(List.of("@easy@".repeat(50),"@problem@".repeat(50)), '@',
-                        List.of("easy,".repeat(50).split(","),"problem".repeat(50).split(","))),
+                Arguments.of(List.of("one.two.three", "four.five", "six"), '.', List.of("one", "two", "three", "four", "five", "six")),
+                Arguments.of(List.of("$easy$", "$problem$"), '$', List.of("easy", "problem")),
+                Arguments.of(List.of(",easy,", ",problem,"), ',', List.of("easy", "problem")),
+                Arguments.of(List.of("#easy#", "#problem#"), '#', List.of("easy", "problem")),
+                Arguments.of(List.of("@easy@", "@problem@"), '@', List.of("easy", "problem")),
+                Arguments.of(List.of("@easy@".repeat(50), "@problem@".repeat(50)), '@',
+                        List.of("easy,".repeat(50).split(","), "problem".repeat(50).split(","))),
                 Arguments.of(List.of("|||"), '|', emptyList())
         );
     }

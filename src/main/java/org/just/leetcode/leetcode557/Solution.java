@@ -1,6 +1,5 @@
 package org.just.leetcode.leetcode557;
 
-
 public class Solution {
 
     public String reverseWords(String s) {
@@ -11,7 +10,7 @@ public class Solution {
         char tempChar;
         for (int c = 0; c < words.length; c++) {
             temp = words[c].toCharArray();
-            for (int i = 0, j = temp.length - 1; i < temp.length/2 && j>=0; i++, j--) {
+            for (int i = 0, j = temp.length - 1; i < temp.length / 2 && j >= 0; i++, j--) {
                 tempChar = temp[i];
                 temp[i] = temp[j];
                 temp[j] = tempChar;

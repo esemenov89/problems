@@ -1,6 +1,5 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode700;
 
-
 import java.util.LinkedList;
 import java.util.Queue;
 

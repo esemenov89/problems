@@ -1,6 +1,5 @@
 package org.just.leetcode.leetcode2810;
 
-
 public class Solution {
 
     public String finalString(String s) {

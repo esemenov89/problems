@@ -8,7 +8,7 @@ public class Solution {
         for (String str : strs) {
             try {
                 temp = Math.max(result, Integer.parseInt(str));
-            } catch(Exception e) {
+            } catch (Exception e) {
                 temp = str.length();
             }
             if (temp > result) {

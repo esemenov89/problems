@@ -1,6 +1,5 @@
 package org.just.leetcode.leetcode2108;
 
-
 public class Solution {
 
     public String firstPalindrome(String[] words) {

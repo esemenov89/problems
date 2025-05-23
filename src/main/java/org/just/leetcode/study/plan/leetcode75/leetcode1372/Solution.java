@@ -1,6 +1,5 @@
 package org.just.leetcode.study.plan.leetcode75.leetcode1372;
 
-
 public class Solution {
 
     int maxZigZag = 0;

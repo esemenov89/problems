@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class Solution {
 
-    private static final Map<String, Boolean> CHESSBOARD  = new HashMap<>();
+    private static final Map<String, Boolean> CHESSBOARD = new HashMap<>();
 
-    static{
+    static {
         CHESSBOARD.put("a1", false);
         CHESSBOARD.put("a2", true);
         CHESSBOARD.put("a3", false);
@@ -79,7 +79,6 @@ public class Solution {
         CHESSBOARD.put("h6", false);
         CHESSBOARD.put("h7", true);
         CHESSBOARD.put("h8", false);
-
     }
 
     public boolean squareIsWhite(String coordinates) {

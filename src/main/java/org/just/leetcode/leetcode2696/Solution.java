@@ -5,7 +5,7 @@ public class Solution {
     public int minLength(String s) {
         int result;
         StringBuilder stringBuilder = new StringBuilder(s);
-        while (!stringBuilder.isEmpty() && (stringBuilder.indexOf("AB") != -1 || stringBuilder.indexOf("CD") != - 1)) {
+        while (!stringBuilder.isEmpty() && (stringBuilder.indexOf("AB") != -1 || stringBuilder.indexOf("CD") != -1)) {
             if (stringBuilder.indexOf("AB") != -1) {
                 stringBuilder.delete(stringBuilder.indexOf("AB"), stringBuilder.indexOf("AB") + 2);
             }

@@ -1,6 +1,5 @@
 package org.just.leetcode.leetcode2828;
 
-
 import java.util.List;
 
 public class Solution {

@@ -1,6 +1,5 @@
 package org.just.leetcode.leetcode1614;
 
-
 public class Solution {
 
     public int maxDepth(String s) {
