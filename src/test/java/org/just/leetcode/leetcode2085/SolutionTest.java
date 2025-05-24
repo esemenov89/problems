@@ -25,7 +25,10 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new String[]{"leetcode","is","amazing","as","is"}, new String[]{"amazing","leetcode","is"}, 2),
                 Arguments.of(new String[]{"b","bb","bbb"}, new String[]{"a","aa","aaa"}, 0),
-                Arguments.of(new String[]{"a","ab"}, new String[]{"a","a","a","ab"}, 2)
+                Arguments.of(new String[]{"a","ab"}, new String[]{"a","a","a","ab"}, 1),
+                Arguments.of(new String[]{"a","ab"}, new String[]{"a","ab"}, 2),
+                Arguments.of(new String[]{"a","a"}, new String[]{"b","a"}, 0),
+                Arguments.of(new String[]{"a","b"}, new String[]{"b","a"}, 2)
         );
     }
 }
