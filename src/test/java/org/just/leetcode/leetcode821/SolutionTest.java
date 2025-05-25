@@ -24,7 +24,9 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("loveleetcode", 'e', new int[]{3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0}),
-                Arguments.of("aaab", 'b', new int[]{3, 2, 1, 0})
+                Arguments.of("aaab", 'b', new int[]{3, 2, 1, 0}),
+                Arguments.of("a".repeat(10000) + 'b', 'b', new int[]{3, 2, 1, 0}),
+                Arguments.of("b" + "a".repeat(10000) + 'b', 'b', new int[]{3, 2, 1, 0})
         );
     }
 }
