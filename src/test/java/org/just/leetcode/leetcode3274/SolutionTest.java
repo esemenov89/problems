@@ -23,10 +23,10 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of("a1", "c3", false),
+                Arguments.of("a1", "c3", true),
                 Arguments.of("a1", "h3", false),
-                Arguments.of("a1", "c3", false),
-                Arguments.of("a1", "c3", false)
+                Arguments.of("a1", "c3", true),
+                Arguments.of("a1", "h8", true)
         );
     }
 }
