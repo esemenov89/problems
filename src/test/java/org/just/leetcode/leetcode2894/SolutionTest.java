@@ -25,7 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(10, 3, 19),
                 Arguments.of(5, 6, 15),
-                Arguments.of(5, 1, -15)
+                Arguments.of(5, 1, -15),
+                Arguments.of(1000, 1, -500500)
         );
     }
 }
