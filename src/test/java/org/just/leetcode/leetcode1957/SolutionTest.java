@@ -25,7 +25,10 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("leeetcode", "leetcode"),
                 Arguments.of("aaabaaaa", "aabaa"),
-                Arguments.of("aab", "aab")
+                Arguments.of("aab", "aab"),
+                Arguments.of("a".repeat(100000), "aa"),
+                Arguments.of("aaab", "aab"),
+                Arguments.of("b" + "a".repeat(100000) + "b", "baab")
         );
     }
 }
