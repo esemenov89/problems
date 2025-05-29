@@ -25,10 +25,10 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("abbaca", "ca"),
                 Arguments.of("azxxzy", "ay"),
-                Arguments.of("aab", "aab"),
-                Arguments.of("a".repeat(100000), "aa"),
-                Arguments.of("aaab", "aab"),
-                Arguments.of("b" + "a".repeat(100000) + "b", "baab")
+                Arguments.of("a".repeat(100000), ""),
+                Arguments.of("a", "a"),
+                Arguments.of("a".repeat(100001), "a"),
+                Arguments.of("abcdefghijklmnopqrstuvwxyz".repeat(1750) + "bb" + "abcdefghijklmnopqrstuvwxyz".repeat(1750), "a")
         );
     }
 }
