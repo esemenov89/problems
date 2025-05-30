@@ -23,9 +23,11 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
+                Arguments.of("vmvmxbmcnhqejkplswrmzcikhaiaiiueiuoiuauoaiaoiuoaooljzaculyiyqeshweyqbbdtfzkueuiiuooeeeauooaiiaaaiuou", 224),
                 Arguments.of("aeiouu", 2),
                 Arguments.of("unicornarihan", 0),
-                Arguments.of("cuaieuouac", 7)
+                Arguments.of("cuaieuouac", 7),
+                Arguments.of("aeiou".repeat(20), 4656)
         );
     }
 }

@@ -8,8 +8,8 @@ Given a string word, return the number of vowel substrings in word.
 **Input:** word = "aeiouu"  
 **Output:** 2  
 **Explanation:** The vowel substrings of word are as follows (underlined):  
-- "aeiouu"
-- "aeiouu"
+- "**aeiou**u"
+- "**aeiouu**"
 
 **Example 2:**  
 **Input:** word = "unicornarihan"  
@@ -20,13 +20,13 @@ Given a string word, return the number of vowel substrings in word.
 **Input:** word = "cuaieuouac"  
 **Output:** 7  
 Explanation: The vowel substrings of word are as follows (underlined):  
-- "cuaieuouac"
-- "cuaieuouac"
-- "cuaieuouac"
-- "cuaieuouac"
-- "cuaieuouac"
-- "cuaieuouac"
-- "cuaieuouac"
+- "c**uaieuo**uac"
+- "c**uaieuou**ac"
+- "c**uaieuoua**c"
+- "cu**aieuo**uac"
+- "cu**aieuou**ac"
+- "cu**aieuou**ac"
+- "cua**ieuoua**c"
 
 **Constraints:**
 - 1 <= word.length <= 100
