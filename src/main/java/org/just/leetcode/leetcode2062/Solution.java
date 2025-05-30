@@ -62,9 +62,6 @@ public class Solution {
                         allVowels = true;
                     } else {
                         temp++;
-                        for (Map.Entry<Character, Integer> entry : VOWELS_MAP.entrySet()) {
-                            entry.setValue(0);
-                        }
                         break;
                     }
                 }
@@ -74,6 +71,9 @@ public class Solution {
                         temp++;
                         result++;
                     }
+                }
+                for (Map.Entry<Character, Integer> entry : VOWELS_MAP.entrySet()) {
+                    entry.setValue(0);
                 }
             }
         }
