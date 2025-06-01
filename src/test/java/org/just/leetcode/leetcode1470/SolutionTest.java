@@ -26,25 +26,29 @@ public class SolutionTest {
                 Arguments.of(new int[]{2, 5, 1, 3, 4, 7}, 3, new int[]{2, 3, 5, 4, 1, 7}),
                 Arguments.of(new int[]{1, 2, 3, 4, 4, 3, 2, 1}, 4, new int[]{1, 4, 2, 3, 3, 2, 4, 1}),
                 Arguments.of(new int[]{1, 1, 2, 2}, 2, new int[]{1, 2, 1, 2}),
-                Arguments.of(generateArray(), 5, generateResultArray())
+                Arguments.of(generateArray(), 500, generateResultArray())
         );
     }
 
     private static int[] generateArray() {
-        int[] array = new int[100];
+        int[] array = new int[1000];
         for (int i = 0; i < array.length; i++) {
-            array[i] = i;
+            if (i < 500) {
+                array[i] = 1000;
+            } else {
+                array[i] = 999;
+            }
         }
         return array;
     }
 
     private static int[] generateResultArray() {
-        int[] array = new int[100];
+        int[] array = new int[1000];
         for (int i = 0; i < array.length; i++) {
-            if (i < 50) {
-                array[i] = 0;
+            if (i % 2 == 0) {
+                array[i] = 1000;
             } else {
-                array[i] = 1;
+                array[i] = 999;
             }
         }
         return array;
