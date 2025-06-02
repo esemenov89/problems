@@ -25,18 +25,14 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new int[]{1, 2, 3, 4}, 3),
                 Arguments.of(new int[]{3, 6, 9}, 0),
-                Arguments.of(new int[]{3, 6, 9}, 0)
+                Arguments.of(generateArray(), 33)
         );
     }
 
     private static int[] generateArray() {
-        int[] array = new int[1000];
+        int[] array = new int[50];
         for (int i = 0; i < array.length; i++) {
-            if (i < 500) {
-                array[i] = 1000;
-            } else {
-                array[i] = 999;
-            }
+            array[i] = i;
         }
         return array;
     }
