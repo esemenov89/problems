@@ -18,7 +18,6 @@ public class SolutionTest {
     void testSolution(int[][] arg1, int expected) {
         int actual = solution.maximumWealth(arg1);
 
-        int[][] grid2 = new int[][]{{3, 1, 2, 2}, {1, 4, 4, 5}, {2, 4, 2, 2}, {2, 4, 2, 2}};
         assertThat(actual, is(expected));
     }
 
