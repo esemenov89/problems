@@ -30,7 +30,7 @@ public class SolutionTest {
     }
 
     private static int[] generateArray() {
-        int[] result = new int[100];
+        int[] result = new int[200];
         for (int i = 0; i < result.length; i++) {
             result[i] = (int) (Math.random() * 100);
         }
