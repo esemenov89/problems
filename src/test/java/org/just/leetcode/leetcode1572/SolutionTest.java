@@ -7,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class SolutionTest {
@@ -26,14 +27,14 @@ public class SolutionTest {
                 Arguments.of(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}, 25),
                 Arguments.of(new int[][]{{1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}, {1, 1, 1, 1}}, 8),
                 Arguments.of(new int[][]{{5}}, 5),
-                Arguments.of(generateArray(), 10, 5)
+                Arguments.of(generateMatrix(), 9202)
         );
     }
 
-    private static int[] generateArray() {
-        int[] result = new int[200];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = (int) (Math.random() * 100);
+    private static int[][] generateMatrix() {
+        int[][] result = new int[100][100];
+        for (int[] ints : result) {
+            Arrays.fill(ints, 100);
         }
 
         return result;
