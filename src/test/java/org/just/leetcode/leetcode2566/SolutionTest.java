@@ -23,9 +23,13 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
+                Arguments.of(95334529, 94000409),
                 Arguments.of(11891, 99009),
+                Arguments.of(1, 9),
+                Arguments.of(10, 90),
                 Arguments.of(90, 99),
-                Arguments.of(100000000, 10)
+                Arguments.of(999, 999),
+                Arguments.of(100000000, 900000000)
         );
     }
 }
