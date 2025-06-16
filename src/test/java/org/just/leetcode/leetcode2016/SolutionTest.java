@@ -23,9 +23,10 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(new int[]{0, 1, 1, 0}, 4),
+                Arguments.of(new int[]{7, 1, 5, 4}, 4),
                 Arguments.of(new int[]{9, 4, 3, 2}, -1),
-                Arguments.of(new int[]{1, 5, 2, 10}, 9)
+                Arguments.of(new int[]{1, 5, 2, 10}, 9),
+                Arguments.of(new int[]{1, 1000000000}, 999999999)
         );
     }
 }
