@@ -25,7 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new int[][]{{1, 3}, {2, 2}}, new int[]{2, 4}),
                 Arguments.of(new int[][]{{9, 1, 7}, {8, 9, 2}, {3, 4, 6}}, new int[]{9, 5}),
-                Arguments.of(new int[][]{{1, 3}, {2, 2}}, new int[]{2, 4})
+                Arguments.of(new int[][]{{2, 3}, {1, 1}}, new int[]{1, 4}),
+                Arguments.of(new int[][]{{1, 2}, {4, 4}}, new int[]{4, 3})
         );
     }
 }

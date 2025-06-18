@@ -16,18 +16,20 @@ public class Solution {
         Arrays.sort(temp);
         index = 0;
         for (int i = 1; i < temp.length; i++) {
-            if (temp[i] == temp[i - 1]) {
+            if (result[0] == 0 && temp[i] == temp[i - 1]) {
                 result[0] = temp[i];
                 index++;
-            } else {
-                if (temp[index] != i) {
-                    result[1] = i;
-                }
+            }
+            if (result[1] == 0 &&temp[index] != i) {
+                result[1] = i;
             }
             index++;
             if (result[0] != 0 && result[1] != 0) {
                 break;
             }
+        }
+        if (result[1] == 0) {
+            result[1] = temp.length;
         }
         return result;
     }
