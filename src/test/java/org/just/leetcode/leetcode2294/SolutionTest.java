@@ -26,7 +26,22 @@ public class SolutionTest {
                 Arguments.of(new int[]{3, 6, 1, 2, 5}, 2, 2),
                 Arguments.of(new int[]{1, 2, 3}, 1, 2),
                 Arguments.of(new int[]{2, 2, 4, 5}, 0, 3),
-                Arguments.of(new int[]{3, 6, 1, 2, 5}, 2, 2)
+                Arguments.of(generateArray(), 1, 50000),
+                Arguments.of(generateArray(), 0, 100000),
+                Arguments.of(generateArray2(), 8327, 1)
         );
+    }
+
+    private static int[] generateArray() {
+        int[] array = new int[100000];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i;
+        }
+        return array;
+    }
+
+    private static int[] generateArray2() {
+        int[] array = new int[100000];
+        return array;
     }
 }
