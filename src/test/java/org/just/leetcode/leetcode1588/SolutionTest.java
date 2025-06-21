@@ -24,18 +24,18 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(new int[]{1,4,2,5,3}, 58),
-                Arguments.of(new int[]{1,2}, 3),
-                Arguments.of(new int[]{10,11,12}, 66),
-                Arguments.of(generateArray(), 2500)
+                Arguments.of(new int[]{1, 4, 2, 5, 3}, 58),
+                Arguments.of(new int[]{1, 2}, 3),
+                Arguments.of(new int[]{10, 11, 12}, 66),
+                Arguments.of(new int[]{1, 1, 1, 1, 1, 1, 1}, 44),
+                // 7 + 7 + 3 + 3 + 3 + 3 + 3 + 5 + 5 + 5
+                Arguments.of(generateArray(), 85850000)
         );
     }
 
     private static int[] generateArray() {
-        int[] array = new int[50];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = i;
-        }
+        int[] array = new int[100];
+        Arrays.fill(array, 1000);
         return array;
     }
 
