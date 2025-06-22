@@ -4,7 +4,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -26,19 +25,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("abcdefghi", 3, 'x', new String[]{"abc", "def", "ghi"}),
                 Arguments.of("abcdefghij", 3, 'x', new String[]{"abc", "def", "ghi", "jxx"}),
-                Arguments.of("abcdefghi", 3, 'x', new String[]{"abc", "def", "ghi"})
+                Arguments.of("abcdefghij".repeat(11), 3, 'x', new String[]{"abc", "def", "ghi", "jab", "cde", "fgh", "ija", "bcd", "efg", "hij", "abc", "def", "ghi", "jab", "cde", "fgh", "ija", "bcd", "efg", "hij", "abc", "def", "ghi", "jab", "cde", "fgh", "ija", "bcd", "efg", "hij", "abc", "def", "ghi", "jab", "cde", "fgh", "ijx"})
         );
-    }
-
-    private static int[] generateArray() {
-        int[] array = new int[100];
-        Arrays.fill(array, 1000);
-        return array;
-    }
-
-    private static int[] generateArray2() {
-        int[] array = new int[50];
-        Arrays.fill(array, 1);
-        return array;
     }
 }
