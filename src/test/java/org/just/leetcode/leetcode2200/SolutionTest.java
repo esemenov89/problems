@@ -26,7 +26,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(new int[]{3, 4, 9, 1, 3, 9, 5}, 9, 1, List.of(1, 2, 3, 4, 5, 6)),
                 Arguments.of(new int[]{2, 2, 2, 2, 2}, 2, 2, List.of(0, 1, 2, 3, 4)),
-                Arguments.of(new int[]{3, 4, 9, 1, 3, 9, 5}, 9, 1, List.of(1, 2, 3, 4, 5, 6))
+                Arguments.of(new int[]{1}, 9, 1, List.of()),
+                Arguments.of(new int[]{1}, 1, 1, List.of(0))
         );
     }
 }
