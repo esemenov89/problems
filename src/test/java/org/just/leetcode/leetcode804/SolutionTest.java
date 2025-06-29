@@ -27,15 +27,7 @@ public class SolutionTest {
                 Arguments.of(new int[]{4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}, "bbbcccdddaaa", new int[]{2, 4}),
                 Arguments.of(new int[]{10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}, "abcdefghijklmnopqrstuvwxyz", new int[]{3, 60}),
                 Arguments.of(new int[]{10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}, "abcdefghijklmnopqrstuvwxyz", new int[]{3, 60}),
-                Arguments.of(new int[]{10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}, "abcdefghijklmnopqrstuvwxyz", new int[]{3, 60})
+                Arguments.of(new int[]{10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}, "abcdefghijklmnopqrstuvwxyz".repeat(500), new int[]{1300, 100})
         );
-    }
-
-    private static int[] generateArray() {
-        int[] array = new int[1000];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 100000);
-        }
-        return array;
     }
 }
