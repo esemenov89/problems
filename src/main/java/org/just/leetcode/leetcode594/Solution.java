@@ -53,9 +53,6 @@ public class Solution {
                     result = subListTwo.size();
                 }
             }
-            if (j == nums.length && maxSubOne == minSubOne && maxSubTwo == minSubTwo) {
-                break;
-            }
         }
         return result;
     }
