@@ -26,6 +26,8 @@ public class SolutionTest {
                 Arguments.of("leetcode exercises sound delightful", true),
                 Arguments.of("eetcode", true),
                 Arguments.of("Leetcode is cool", false),
+                Arguments.of("test", true),
+                Arguments.of("table", false),
                 Arguments.of("a".repeat(100), true),
                 Arguments.of("a".repeat(50) + "b".repeat(50), false)
         );
