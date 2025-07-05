@@ -4,8 +4,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Stream;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -29,13 +27,19 @@ public class SolutionTest {
                 Arguments.of(new int[]{1, 2, 2, 3, 3, 3}, 3),
                 Arguments.of(new int[]{2, 2, 2, 3, 3}, -1),
                 Arguments.of(new int[]{2, 2, 3, 4}, 2),
-                Arguments.of(generateStrings(), List.of())
+                Arguments.of(generateArray(), 250)
         );
     }
 
-    private static String[] generateStrings() {
-        String[] strings = new String[100];
-        Arrays.fill(strings, "a");
-        return strings;
+    private static int[] generateArray() {
+        int[] array = new int[500];
+        for (int i = 0; i < array.length; i++) {
+            if (i % 2 == 0) {
+                array[i] = 250;
+            } else {
+                array[i] = 10;
+            }
+        }
+        return array;
     }
 }
