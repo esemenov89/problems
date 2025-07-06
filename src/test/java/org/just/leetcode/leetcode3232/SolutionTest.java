@@ -26,19 +26,14 @@ public class SolutionTest {
                 Arguments.of(new int[]{1, 2, 3, 4, 10}, false),
                 Arguments.of(new int[]{1, 2, 3, 4, 5, 14}, true),
                 Arguments.of(new int[]{5, 5, 5, 25}, true),
-                Arguments.of(new int[]{2, 2, 3, 4}, 2),
-                Arguments.of(generateArray(), 250)
+                Arguments.of(generateArray(), true)
         );
     }
 
     private static int[] generateArray() {
-        int[] array = new int[500];
+        int[] array = new int[100];
         for (int i = 0; i < array.length; i++) {
-            if (i % 2 == 0) {
-                array[i] = 250;
-            } else {
-                array[i] = 10;
-            }
+            array[i] = i;
         }
         return array;
     }
