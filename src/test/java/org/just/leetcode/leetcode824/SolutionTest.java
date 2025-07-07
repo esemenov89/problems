@@ -26,7 +26,7 @@ public class SolutionTest {
                 Arguments.of("I speak Goat Latin", "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"),
                 Arguments.of("The quick brown fox jumped over the lazy dog", "heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa"),
                 Arguments.of("I speak Goat Latin", "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"),
-                Arguments.of("I speak Goat Latin", "Imaa peaksmaaa oatGmaaaa atinLmaaaaa")
+                Arguments.of("I speak ".repeat(75), "Imaa peaksmaaa oatGmaaaa atinLmaaaaa")
         );
     }
 }
