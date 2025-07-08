@@ -26,7 +26,9 @@ public class SolutionTest {
                 Arguments.of("6777133339", "777"),
                 Arguments.of("2300019", "000"),
                 Arguments.of("42352338", ""),
-                Arguments.of("6777133339", "777")
+                Arguments.of("777", "777"),
+                Arguments.of("077", ""),
+                Arguments.of("777999".repeat(167), "999")
         );
     }
 }
