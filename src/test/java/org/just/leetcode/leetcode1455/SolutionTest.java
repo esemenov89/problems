@@ -26,8 +26,8 @@ public class SolutionTest {
                 Arguments.of("i love eating burger", "burg", 4),
                 Arguments.of("this problem is an easy problem", "pro", 2),
                 Arguments.of("i am tired", "you", -1),
-                Arguments.of("i love eating burger", "burg", 4),
-                Arguments.of("i love eating burger", "burg", 4),
+                Arguments.of("this problem is ".repeat(30) + "burger", "burg", 91),
+                Arguments.of("hellohello hellohellohello", "ell", -1),
                 Arguments.of("i love eating burger", "burg", 4)
         );
     }
