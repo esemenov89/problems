@@ -26,9 +26,10 @@ public class SolutionTest {
                 Arguments.of("leEeetcode", "leetcode"),
                 Arguments.of("abBAcC", ""),
                 Arguments.of("s", "s"),
-                Arguments.of("leEeetcode", "leetcode"),
-                Arguments.of("leEeetcode", "leetcode"),
-                Arguments.of("leEeetcode", "leetcode")
+                Arguments.of("aa", "aa"),
+                Arguments.of("aA", ""),
+                Arguments.of("Pp", ""),
+                Arguments.of("aA".repeat(50), "")
         );
     }
 }
