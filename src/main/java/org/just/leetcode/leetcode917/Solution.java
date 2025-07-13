@@ -77,13 +77,15 @@ public class Solution {
         }
         stringBuilder = stringBuilder.reverse();
         StringBuilder temp = new StringBuilder();
+        int sbIndex = 0;
         for (int i = 0; i < s.length(); i++) {
             if (map.containsKey(i)) {
                 temp.append(map.get(i));
             } else {
-
+                temp.append(stringBuilder.charAt(sbIndex++));
             }
         }
+        result = temp.toString();
         return result;
     }
 }

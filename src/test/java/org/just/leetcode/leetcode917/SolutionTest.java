@@ -23,9 +23,12 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
+                Arguments.of("a", "a"),
+                Arguments.of("ab", "ba"),
                 Arguments.of("ab-cd", "dc-ba"),
                 Arguments.of("a-bC-dEf-ghIj", "j-Ih-gfE-dCba"),
-                Arguments.of("Test1ng-Leet=code-Q!", "Qedo1ct-eeLg=ntse-T!")
+                Arguments.of("Test1ng-Leet=code-Q!", "Qedo1ct-eeLg=ntse-T!"),
+                Arguments.of("ab-".repeat(33), "ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-ba-")
         );
     }
 }
