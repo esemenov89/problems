@@ -25,7 +25,7 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(generateListNode1(), 5),
                 Arguments.of(new ListNode(0), 0),
-                Arguments.of(generateListNode2(), 5)
+                Arguments.of(generateListNode2(), 11)
         );
     }
 
