@@ -24,8 +24,12 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("234Adas", true),
-                Arguments.of("234Adas", true),
-                Arguments.of("234Adas", true),
+                Arguments.of("Ab", false),
+                Arguments.of("Ab3", true),
+                Arguments.of("AbC", true),
+                Arguments.of("Ab@", false),
+                Arguments.of("b3", false),
+                Arguments.of("a3$e", false),
                 Arguments.of("234Adas", true),
                 Arguments.of("234Adas", true)
         );
