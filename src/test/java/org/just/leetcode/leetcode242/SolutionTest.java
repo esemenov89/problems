@@ -24,8 +24,12 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("anagram", "nagaram", true),
-                Arguments.of("rat", "car", true),
-                Arguments.of("anagram", "nagaram", true)
+                Arguments.of("rat", "car", false),
+                Arguments.of("anagram", "nagaram", true),
+                Arguments.of("r", "car", false),
+                Arguments.of("car", "r", false),
+                Arguments.of("a".repeat(50000), "b".repeat(50000), false),
+                Arguments.of("a".repeat(50000), "a".repeat(50000), true)
         );
     }
 }
