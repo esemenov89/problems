@@ -24,7 +24,16 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of(new int[]{1, 0, 2, 1, 3}, new int[]{3, 3, 2, 2, 1}),
-                Arguments.of(new int[]{1, 2}, new int[]{2, 1})
+                Arguments.of(new int[]{1, 2}, new int[]{2, 1}),
+                Arguments.of(generateArray(), new int[]{2, 1})
         );
+    }
+
+    private static int[] generateArray() {
+        int[] array = new int[100000];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 1000000000);
+        }
+        return array;
     }
 }
