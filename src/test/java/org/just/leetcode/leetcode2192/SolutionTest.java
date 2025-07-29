@@ -25,7 +25,10 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("capiTalIze tHe titLe", "Capitalize The Title"),
                 Arguments.of("First leTTeR of EACH Word", "First Letter of Each Word"),
-                Arguments.of("i lOve leetcode", "i Love Leetcode")
+                Arguments.of("i lOve leetcode", "i Love Leetcode"),
+                Arguments.of("a", "a"),
+                Arguments.of("A", "a"),
+                Arguments.of("A".repeat(100), "A" + "a".repeat(99))
         );
     }
 }
