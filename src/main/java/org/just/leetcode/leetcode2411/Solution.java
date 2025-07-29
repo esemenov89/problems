@@ -1,32 +1,24 @@
 package org.just.leetcode.leetcode2411;
 
+import java.util.Arrays;
+
 public class Solution {
 
     public int[] smallestSubarrays(int[] nums) {
-        int[] result = new int[nums.length];
-        int maxOr;
-        int tempOr;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == nums.length - 1) {
-                result[i] = 1;
-                break;
-            }
-            maxOr = 0;
-            tempOr = nums[i];
-            for (int j = i + 1; j < nums.length; j++) {
-                tempOr = tempOr | nums[j];
-                if (tempOr > maxOr) {
-                    maxOr = tempOr;
+        int length = nums.length;
+        int[] result = new int[length];
+        int[] latestOneBitIndices = new int[32];
+        Arrays.fill(latestOneBitIndices, -1);
+        for (int i = length - 1; i >= 0; --i) {
+            int subarraySize = 1;
+            for (int j = 0; j < 32; ++j) {
+                if (((nums[i] >> j) & 1) == 1) {
+                    latestOneBitIndices[j] = i;
+                } else if (latestOneBitIndices[j] != -1) {
+                    subarraySize = Math.max(subarraySize, latestOneBitIndices[j] - i + 1);
                 }
             }
-            tempOr = nums[i];
-            for (int j = i + 1; j < nums.length; j++) {
-                tempOr = tempOr | nums[j];
-                if (tempOr == maxOr) {
-                    result[i] = j - i + 1;
-                    break;
-                }
-            }
+            result[i] = subarraySize;
         }
         return result;
     }
