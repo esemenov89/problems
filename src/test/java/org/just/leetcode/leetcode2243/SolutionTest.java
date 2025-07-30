@@ -24,9 +24,10 @@ public class SolutionTest {
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
                 Arguments.of("11111222223", 3, "135"),
-                Arguments.of("00000000", 3, "0000"),
-                Arguments.of("00000000", 3, "0000"),
-                Arguments.of("00000000", 3, "0000")
+                Arguments.of("00000000", 3, "000"),
+                Arguments.of("1", 2, "1"),
+                Arguments.of("0".repeat(100), 2, "00"),
+                Arguments.of("0".repeat(100), 99, "00")
         );
     }
 }
