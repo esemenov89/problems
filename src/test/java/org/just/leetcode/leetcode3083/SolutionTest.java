@@ -25,7 +25,9 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("leetcode", true),
                 Arguments.of("abcba", true),
-                Arguments.of("abcd", false)
+                Arguments.of("abcd", false),
+                Arguments.of("abcd".repeat(25), false),
+                Arguments.of("ab".repeat(50), true)
         );
     }
 }
