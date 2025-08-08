@@ -20,5 +20,5 @@ A substring is a contiguous sequence of characters within a string.
 **Explanation:** "35427" is already an odd number.  
 
 **Constraints:**  
-- 1 <= num.length <= 105
+- 1 <= num.length <= 10^5
 - num only consists of digits and does not contain any leading zeros.

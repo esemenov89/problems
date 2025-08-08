@@ -25,7 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("52", "5"),
                 Arguments.of("4206", ""),
-                Arguments.of("35427", "35427")
+                Arguments.of("35427", "35427"),
+                Arguments.of("7".repeat(100000) + "2", "7".repeat(100000))
         );
     }
 }
