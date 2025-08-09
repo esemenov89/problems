@@ -25,7 +25,9 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of(1, true),
                 Arguments.of(16, true),
-                Arguments.of(3, false)
+                Arguments.of(3, false),
+                Arguments.of(5, false),
+                Arguments.of(4, true)
         );
     }
 }
