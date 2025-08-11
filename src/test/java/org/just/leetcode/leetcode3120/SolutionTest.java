@@ -26,7 +26,7 @@ public class SolutionTest {
                 Arguments.of("aaAbcBC", 3),
                 Arguments.of("abc", 0),
                 Arguments.of("abBCab", 1),
-                Arguments.of("aaAbcBC", 3),
+                Arguments.of("aA".repeat(25), 1),
                 Arguments.of("aaAbcBC", 3)
         );
     }
