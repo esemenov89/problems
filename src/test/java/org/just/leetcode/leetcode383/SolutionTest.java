@@ -26,7 +26,8 @@ public class SolutionTest {
                 Arguments.of("a", "b", false),
                 Arguments.of("aa", "ab", false),
                 Arguments.of("aa", "aab", true),
-                Arguments.of("a", "b", false)
+                Arguments.of("a".repeat(100000), "b".repeat(100000), false),
+                Arguments.of("a".repeat(100000), "a".repeat(100000), true)
         );
     }
 }
