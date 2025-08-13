@@ -23,11 +23,11 @@ public class SolutionTest {
 
     private static Stream<Arguments> provideArguments() {
         return Stream.of(
-                Arguments.of(1, true),
-                Arguments.of(16, true),
-                Arguments.of(3, false),
+                Arguments.of(27, true),
+                Arguments.of(0, false),
+                Arguments.of(-1, false),
                 Arguments.of(5, false),
-                Arguments.of(4, true)
+                Arguments.of(4, false)
         );
     }
 }
