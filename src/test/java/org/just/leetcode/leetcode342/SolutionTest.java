@@ -27,7 +27,7 @@ public class SolutionTest {
                 Arguments.of(5, false),
                 Arguments.of(1, true),
                 Arguments.of(5, false),
-                Arguments.of(4, false)
+                Arguments.of(4, true)
         );
     }
 }
