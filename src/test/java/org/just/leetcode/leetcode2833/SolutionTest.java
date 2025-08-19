@@ -25,7 +25,9 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("L_RL__R", 3),
                 Arguments.of("_R__LL_", 5),
-                Arguments.of("_______", 7)
+                Arguments.of("_______", 7),
+                Arguments.of("_".repeat(50), 50),
+                Arguments.of("LR".repeat(25), 0)
         );
     }
 }
