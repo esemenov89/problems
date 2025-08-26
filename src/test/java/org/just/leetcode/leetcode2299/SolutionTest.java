@@ -27,7 +27,8 @@ public class SolutionTest {
                 Arguments.of("Me+You--IsMyDream", false),
                 Arguments.of("1aB!", false),
                 Arguments.of("IloveLe3tcode!", true),
-                Arguments.of("IloveLe3tcode!", true)
+                Arguments.of("aB1!".repeat(25), true),
+                Arguments.of("aB1!".repeat(25) + "aa", false)
         );
     }
 }
