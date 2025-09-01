@@ -25,8 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("alice is a good girl she is a good student", "a", "good", new String[]{"girl", "student"}),
                 Arguments.of("we will we will rock you", "we", "will", new String[]{"we", "rock"}),
-                Arguments.of("alice is a good girl she is a good student", "a", "good", new String[]{"girl", "student"}),
-                Arguments.of("alice is a good girl she is a good student", "a", "good", new String[]{"girl", "student"})
+                Arguments.of("a good", "a", "good", new String[]{}),
+                Arguments.of("a good girl", "a", "good", new String[]{"girl"})
         );
     }
 }
