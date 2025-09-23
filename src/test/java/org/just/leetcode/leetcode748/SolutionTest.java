@@ -25,7 +25,8 @@ public class SolutionTest {
         return Stream.of(
                 Arguments.of("1s3 PSt", new String[] {"step","steps","stripe","stepple"}, "steps"),
                 Arguments.of("1s3 456", new String[] {"looks","pest","stew","show"}, "pest"),
-                Arguments.of("1s3 PSt", new String[] {"step","steps","stripe","stepple"}, "steps")
+                Arguments.of("1s3 PSt", new String[] {"step","steps","stripe","stepple"}, "steps"),
+                Arguments.of("1aaa3 AAA", new String[] {"aaa","aaaa","aaaaa","aaaaaa","aaaaaaa"}, "aaaaaa")
         );
     }
 }
