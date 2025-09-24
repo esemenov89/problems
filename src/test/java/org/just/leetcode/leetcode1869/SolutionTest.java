@@ -26,7 +26,8 @@ public class SolutionTest {
                 Arguments.of("1101", true),
                 Arguments.of("111000", false),
                 Arguments.of("110100010", false),
-                Arguments.of("1101", true)
+                Arguments.of("1".repeat(50) + "0".repeat(50), false),
+                Arguments.of("1".repeat(50) + "0".repeat(49), true)
         );
     }
 }
